@@ -1,0 +1,35 @@
+# Ornetti Data Services
+
+> Sylvain Ornetti — consultant data & IA indépendant, fondateur d'Ornetti Data Services.
+
+## À propos
+
+Ornetti Data Services propose des services data et IA clé en main pour organisations publiques et privées françaises. L'approche : livrer des solutions concrètes, adaptées aux enjeux clients, sans complexité inutile — de la donnée brute à l'impact mesurable.
+
+## Services
+
+- **Services data clé en main** : pipelines ETL, dashboards interactifs, modélisation data, Open Data
+- **Ateliers IA** : détection et implémentation de cas d'usage IA, LLM, formation interne
+- **Communication data** : DataViz, storytelling, mise en récit de données pour des publics variés
+
+## Références clients
+
+- Huwise (plateforme Open Data)
+- Ministère de l'Éducation Nationale (MEN)
+- Grand Est Développement
+- Pas à Pas l'Enfant
+- Région Académique Normandie
+
+## Projets portfolio
+
+- **Savoir Rouler à Vélo** — dashboard pédagogique pour le MEN, visualisant la couverture nationale du programme d'apprentissage du vélo
+- **Gestes auto-infligés** — visualisation de l'évolution par tranche d'âge, enjeu de santé publique
+- **Cinéma en Suisse** — analyse de l'affluence et des origines des films diffusés en Suisse
+- **Huwise Widgets Skills — Claude** — kit de skills Claude open source pour la plateforme Huwise/OpenDataSoft
+
+## Contact
+
+- Site : https://ornettidataservices.com
+- Email : sylvain@ornettidataservices.com
+- Téléphone : +33 7 86 09 34 48
+- LinkedIn : https://www.linkedin.com/in/sylvainornetti/

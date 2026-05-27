@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sylvain Ornetti — consultant data & IA indépendant. Services data clé en main, ateliers IA et communication data pour organisations publiques et privées. Pipelines ETL, dashboards, DataViz.">
+    <meta name="description" content="Sylvain Ornetti — independent data & AI consultant. Turnkey data services, AI workshops and data communication for public and private organizations. ETL pipelines, dashboards, DataViz.">
     <meta name="robots" content="index, follow">
-    <title>Ornetti Data Services — Expert Data & IA · Sylvain Ornetti</title>
-    <link rel="canonical" href="https://ornettidataservices.com/">
+    <title>Ornetti Data Services — Data & AI Expert · Sylvain Ornetti</title>
+    <link rel="canonical" href="https://ornettidataservices.com/en/">
     <link rel="alternate" hreflang="fr" href="https://ornettidataservices.com/">
     <link rel="alternate" hreflang="en" href="https://ornettidataservices.com/en/">
     <link rel="alternate" hreflang="x-default" href="https://ornettidataservices.com/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="logos/logo_odsp_cercle.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logos/logo_odsp_cercle.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="logos/logo_odsp_cercle.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../logos/logo_odsp_cercle.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../logos/logo_odsp_cercle.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../logos/logo_odsp_cercle.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Ornetti Data Services">
-    <meta property="og:url" content="https://ornettidataservices.com/">
-    <meta property="og:title" content="Ornetti Data Services — Expert Data & IA · Sylvain Ornetti">
-    <meta property="og:description" content="Services data & IA clé en main pour organisations publiques et privées — pipelines ETL, dashboards, ateliers IA, DataViz et storytelling.">
+    <meta property="og:url" content="https://ornettidataservices.com/en/">
+    <meta property="og:title" content="Ornetti Data Services — Data & AI Expert · Sylvain Ornetti">
+    <meta property="og:description" content="Turnkey data & AI services for public and private organizations — ETL pipelines, dashboards, AI workshops, DataViz and storytelling.">
     <meta property="og:image" content="https://ornettidataservices.com/logos/logo_odsp_cercle.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Ornetti Data Services — Expert Data & IA">
-    <meta name="twitter:description" content="Services data & IA clé en main pour organisations publiques et privées — pipelines ETL, dashboards, ateliers IA, DataViz.">
+    <meta name="twitter:title" content="Ornetti Data Services — Data & AI Expert">
+    <meta name="twitter:description" content="Turnkey data & AI services for public and private organizations — ETL pipelines, dashboards, AI workshops, DataViz.">
     <meta name="twitter:image" content="https://ornettidataservices.com/logos/logo_odsp_cercle.png">
 
     <!-- JSON-LD : Organization + Person -->
@@ -44,7 +44,7 @@
           "logo": "https://ornettidataservices.com/logos/logo_odsp_cercle.png",
           "email": "sylvain@ornettidataservices.com",
           "telephone": "+33786093448",
-          "description": "Services data & IA clé en main pour organisations publiques et privées : pipelines ETL, dashboards interactifs, ateliers IA, DataViz et storytelling.",
+          "description": "Turnkey data & AI services for public and private organizations: ETL pipelines, interactive dashboards, AI workshops, DataViz and storytelling.",
           "founder": { "@id": "https://ornettidataservices.com/#sylvain" },
           "sameAs": ["https://www.linkedin.com/in/sylvainornetti/"]
         },
@@ -52,7 +52,7 @@
           "@type": "Person",
           "@id": "https://ornettidataservices.com/#sylvain",
           "name": "Sylvain Ornetti",
-          "jobTitle": "Consultant Data & IA",
+          "jobTitle": "Data & AI Consultant",
           "email": "sylvain@ornettidataservices.com",
           "telephone": "+33786093448",
           "url": "https://ornettidataservices.com/",
@@ -681,6 +681,58 @@
         .project-link svg { transition: transform 0.2s; }
         .project-card:hover .project-link svg { transform: translateX(4px); }
 
+        /* ─── TECHNOS ─── */
+        #technos { background: var(--white); padding: 5rem 3rem; }
+        .technos-header { text-align: center; margin-bottom: 3rem; }
+        .technos-label { color: var(--peach); }
+        .technos-title { color: var(--navy); }
+        .technos-sub { color: var(--text-medium); margin: 0 auto; }
+
+        .technos-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .techno-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .techno-item img {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+        }
+
+        .techno-badge {
+            width: 54px;
+            height: 54px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.7rem;
+            color: white;
+            letter-spacing: 0.04em;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .techno-name {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            text-align: center;
+        }
+
         /* ─── CONTACT ─── */
         #contact {
             background: var(--navy-dark);
@@ -745,58 +797,6 @@
             color: rgba(255,255,255,0.25);
         }
 
-        /* ─── TECHNOS ─── */
-        #technos { background: var(--white); padding: 5rem 3rem; }
-        .technos-header { text-align: center; margin-bottom: 3rem; }
-        .technos-label { color: var(--peach); }
-        .technos-title { color: var(--navy); }
-        .technos-sub { color: var(--text-medium); margin: 0 auto; }
-
-        .technos-grid {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            max-width: 860px;
-            margin: 0 auto;
-        }
-
-        .techno-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .techno-item img {
-            width: 54px;
-            height: 54px;
-            object-fit: contain;
-        }
-
-        .techno-badge {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.7rem;
-            color: white;
-            letter-spacing: 0.04em;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        .techno-name {
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--text-medium);
-            text-align: center;
-        }
-
         /* ─── REVEAL ─── */
         .reveal {
             opacity: 0;
@@ -835,21 +835,21 @@
 <nav id="nav">
     <div class="nav-left">
         <a href="#hero" class="nav-brand">
-            <img src="logos/logo_odsp_cercle.png" alt="Ornetti Data Services" class="nav-logo">
+            <img src="../logos/logo_odsp_cercle.png" alt="Ornetti Data Services" class="nav-logo">
             <span class="nav-name">Ornetti Data Services</span>
         </a>
         <div class="lang-switch">
-            <span class="lang-btn lang-active">FR</span>
+            <a href="/" class="lang-btn">FR</a>
             <span class="lang-sep">/</span>
-            <a href="/en/" class="lang-btn">EN</a>
+            <span class="lang-btn lang-active">EN</span>
         </div>
     </div>
     <ul class="nav-links">
-        <li><a href="#about">À propos</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#clients">Clients</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact" class="nav-cta">Me contacter</a></li>
+        <li><a href="#contact" class="nav-cta">Contact me</a></li>
     </ul>
 </nav>
 
@@ -858,25 +858,25 @@
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
         <span class="hero-eyebrow">
-            <span>✦</span> Services Data &amp; IA
+            <span>✦</span> Data &amp; AI Services
         </span>
         <h1 class="hero-title">
-            La donnée,<br>
-            au service de ce qui<br>
-            <em>compte vraiment.</em>
+            Data,<br>
+            for what<br>
+            <em>truly counts.</em>
         </h1>
         <p class="hero-subtitle">
-            Livraison service data clé en main pour organisations publiques et privées :
-            de la conception à la communication.
+            End-to-end data services for public and private organizations:
+            from design to delivery.
         </p>
         <div class="hero-actions">
             <a href="#portfolio" class="btn-primary">
-                Voir les projets
+                See projects
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                     <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
-            <a href="#contact" class="btn-secondary">Discutons de votre projet</a>
+            <a href="#contact" class="btn-secondary">Let's talk about your project</a>
         </div>
     </div>
     <div class="scroll-indicator">
@@ -889,38 +889,38 @@
     <div class="section-inner">
         <div class="about-grid">
             <div>
-                <p class="section-label about-label">À propos</p>
-                <h2 class="section-title about-title">Expert Data &amp; IA,<br>ancré dans le réel.</h2>
+                <p class="section-label about-label">About</p>
+                <h2 class="section-title about-title">Data &amp; AI Expert,<br>grounded in reality.</h2>
                 <p class="about-text">
-                    Je livre des projets Data &amp; IA pour des organisations publiques et privées :
-                    de l'identification du cas d'usage jusqu'à la mise en production,
-                    avec des livrables concrets à chaque étape.
+                    I deliver Data &amp; AI projects for public and private organizations:
+                    from use case identification to production deployment,
+                    with concrete deliverables at every step.
                 </p>
                 <p class="about-text">
-                    Les mains dans les données, sur le terrain : pipelines, dashboards,
-                    automatisations IA. Des solutions adaptées à vos enjeux réels.
+                    Hands-on in the data, in the field: pipelines, dashboards,
+                    AI automations. Solutions tailored to your real needs.
                 </p>
                 <div class="about-stats">
                     <div>
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">Clients actifs</div>
+                        <div class="stat-label">Active clients</div>
                     </div>
                     <div>
                         <div class="stat-number">3</div>
-                        <div class="stat-label">Piliers d'offre</div>
+                        <div class="stat-label">Service pillars</div>
                     </div>
                     <div>
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">Sur mesure</div>
+                        <div class="stat-label">Custom-built</div>
                     </div>
                 </div>
             </div>
             <div class="about-visual reveal">
                 <div class="about-logo-wrap">
                     <div class="about-logo-bg"></div>
-                    <img src="logos/photoso.jpeg" alt="Sylvain Ornetti" class="about-photo">
+                    <img src="../logos/photoso.jpeg" alt="Sylvain Ornetti" class="about-photo">
                     <div class="about-logo-badge">
-                        <img src="logos/logo_odsp_cercle.png" alt="Ornetti Data Services">
+                        <img src="../logos/logo_odsp_cercle.png" alt="Ornetti Data Services">
                     </div>
                 </div>
             </div>
@@ -933,16 +933,16 @@
     <div class="section-inner">
         <div class="services-header">
             <p class="section-label services-label">Services</p>
-            <h2 class="section-title services-title">Trois façons de vous accompagner.</h2>
-            <p class="section-sub services-sub">Un spectre complet, de l'infrastructure à la communication.</p>
+            <h2 class="section-title services-title">Three ways to support you.</h2>
+            <p class="section-sub services-sub">End-to-end coverage, from infrastructure to communication.</p>
         </div>
         <div class="services-grid">
             <div class="service-card reveal">
                 <div class="service-icon">📊</div>
-                <h3 class="service-title">Services data clé en main</h3>
+                <h3 class="service-title">Turnkey Data Services</h3>
                 <p class="service-desc">
-                    Pipeline ETL, dashboards interactifs, modélisation data. Je prends en charge
-                    l'intégralité de votre projet, de la collecte à la visualisation.
+                    ETL pipelines, interactive dashboards, data modeling. I handle
+                    your entire project, from data collection to visualization.
                 </p>
                 <div class="service-tags">
                     <span class="tag">ETL / Pipelines</span>
@@ -952,23 +952,23 @@
             </div>
             <div class="service-card reveal reveal-delay-1">
                 <div class="service-icon">🤖</div>
-                <h3 class="service-title">Ateliers IA</h3>
+                <h3 class="service-title">AI Workshops</h3>
                 <p class="service-desc">
-                    Détection et implémentation de cas d'usage IA adaptés à votre organisation.
-                    Des sessions concrètes, orientées résultats immédiats et appropriation durable.
+                    Identifying and implementing AI use cases tailored to your organization.
+                    Practical sessions focused on immediate results and lasting adoption.
                 </p>
                 <div class="service-tags">
-                    <span class="tag">Cas d'usage IA</span>
+                    <span class="tag">AI Use Cases</span>
                     <span class="tag">LLM</span>
-                    <span class="tag">Formation</span>
+                    <span class="tag">Training</span>
                 </div>
             </div>
             <div class="service-card reveal reveal-delay-2">
                 <div class="service-icon">📡</div>
-                <h3 class="service-title">Communication data</h3>
+                <h3 class="service-title">Data Communication</h3>
                 <p class="service-desc">
-                    Mise en récit de vos données pour toucher vos publics. Du storytelling visuel
-                    aux cas d'usage à forte visibilité. La donnée comme levier de communication.
+                    Turning your data into compelling stories for your audiences. From visual storytelling
+                    to high-visibility use cases. Data as a communication lever.
                 </p>
                 <div class="service-tags">
                     <span class="tag">DataViz</span>
@@ -984,41 +984,36 @@
 <section id="clients">
     <div class="section-inner">
         <div class="clients-header">
-            <p class="section-label clients-label">Références</p>
-            <h2 class="section-title clients-title">Des organisations qui comptent.</h2>
+            <p class="section-label clients-label">References</p>
+            <h2 class="section-title clients-title">Organizations that count.</h2>
         </div>
         <div class="clients-strip">
-            <!-- Huwise -->
             <div class="client-logo-card">
-                <img src="logos/huwise.svg" alt="Huwise"
+                <img src="../logos/huwise.svg" alt="Huwise"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Huwise</span>
                 <p class="client-name">Huwise</p>
             </div>
-            <!-- MEN -->
             <div class="client-logo-card">
-                <img src="logos/logoeduc.png" alt="Ministère de l'Éducation Nationale"
+                <img src="../logos/logoeduc.png" alt="Ministry of National Education"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                <span class="client-logo-fallback" style="display:none">Ministère de<br>l'Éducation Nationale</span>
-                <p class="client-name">Ministère de l'Éducation Nationale</p>
+                <span class="client-logo-fallback" style="display:none">Ministry of<br>National Education</span>
+                <p class="client-name">Ministry of National Education</p>
             </div>
-            <!-- Grand Est Développement -->
             <div class="client-logo-card">
-                <img src="logos/grand_est.jpeg" alt="Grand Est Développement"
+                <img src="../logos/grand_est.jpeg" alt="Grand Est Développement"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Grand Est<br>Développement</span>
                 <p class="client-name">Grand Est Développement</p>
             </div>
-            <!-- Pas à Pas l'Enfant -->
             <div class="client-logo-card">
-                <img src="logos/ppe.jpeg" alt="Pas à Pas l'Enfant"
+                <img src="../logos/ppe.jpeg" alt="Pas à Pas l'Enfant"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Pas à Pas<br>l'Enfant</span>
                 <p class="client-name">Pas à Pas l'Enfant</p>
             </div>
-            <!-- Région Académique Normandie -->
             <div class="client-logo-card">
-                <img src="logos/ranormandie.png" alt="Région Académique Normandie"
+                <img src="../logos/ranormandie.png" alt="Région Académique Normandie"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Région Académique<br>Normandie</span>
                 <p class="client-name">Région Académique Normandie</p>
@@ -1032,26 +1027,25 @@
     <div class="section-inner">
         <div class="portfolio-header">
             <p class="section-label portfolio-label">Portfolio</p>
-            <h2 class="section-title portfolio-title">Des projets qui parlent d'eux-mêmes.</h2>
-            <p class="section-sub portfolio-sub">Visualisation, dashboards publics, ressources open source.</p>
+            <h2 class="section-title portfolio-title">Projects that speak for themselves.</h2>
+            <p class="section-sub portfolio-sub">Visualization, public dashboards, open source resources.</p>
         </div>
         <div class="portfolio-grid">
 
-            <!-- Vélo -->
             <a href="https://sylvaino.github.io/Savoir-Rouler-V-lo-/" target="_blank" rel="noopener" class="project-card reveal">
                 <div class="project-header" style="background: linear-gradient(135deg,#E8F5E9,#C8E6C9);">
                     <span class="project-icon-large">🚲</span>
                 </div>
                 <div class="project-body">
                     <div class="project-meta">
-                        <span class="project-category">Éducation</span>
+                        <span class="project-category">Education</span>
                         <span class="project-sep">·</span>
-                        <span class="project-client">Ministère de l'Éducation Nationale</span>
+                        <span class="project-client">Ministry of National Education</span>
                     </div>
-                    <h3 class="project-name">Savoir Rouler à Vélo</h3>
-                    <p class="project-desc">Dashboard pédagogique visualisant la couverture et la progression du programme national d'apprentissage du vélo en France.</p>
+                    <h3 class="project-name">Learning to Ride a Bike</h3>
+                    <p class="project-desc">Pedagogical dashboard visualizing the coverage and progress of France's national cycling skills program.</p>
                     <span class="project-link">
-                        Voir le projet
+                        See project
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -1059,21 +1053,20 @@
                 </div>
             </a>
 
-            <!-- Gestes auto-infligés -->
             <a href="https://sylvaino.github.io/dataviz-gestes-autoinfliges-par-age/" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
                 <div class="project-header" style="background: linear-gradient(135deg,#FFF3E0,#FFCCBC);">
                     <span class="project-icon-large">📈</span>
                 </div>
                 <div class="project-body">
                     <div class="project-meta">
-                        <span class="project-category">Santé publique</span>
+                        <span class="project-category">Public Health</span>
                         <span class="project-sep">·</span>
                         <span class="project-client">DataViz</span>
                     </div>
-                    <h3 class="project-name">Gestes auto-infligés</h3>
-                    <p class="project-desc">Visualisation de l'évolution des gestes auto-infligés par tranche d'âge. Mise en lumière d'un enjeu de santé publique par la donnée.</p>
+                    <h3 class="project-name">Self-harm Trends</h3>
+                    <p class="project-desc">Visualization of self-harm trends by age group. A data-driven spotlight on a public health issue.</p>
                     <span class="project-link">
-                        Voir le projet
+                        See project
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -1081,7 +1074,6 @@
                 </div>
             </a>
 
-            <!-- Cinéma Suisse -->
             <a href="https://sylvaino.github.io/Statistiques-Affluence-Cinema-Suisse/" target="_blank" rel="noopener" class="project-card reveal">
                 <div class="project-header" style="background: linear-gradient(135deg,#E8EAF6,#C5CAE9);">
                     <span class="project-icon-large">🎬</span>
@@ -1090,12 +1082,12 @@
                     <div class="project-meta">
                         <span class="project-category">Culture</span>
                         <span class="project-sep">·</span>
-                        <span class="project-client">Suisse</span>
+                        <span class="project-client">Switzerland</span>
                     </div>
-                    <h3 class="project-name">Cinéma en Suisse</h3>
-                    <p class="project-desc">Analyse de l'affluence et des origines des films diffusés en Suisse. Un regard data sur la diversité cinématographique helvétique.</p>
+                    <h3 class="project-name">Cinema in Switzerland</h3>
+                    <p class="project-desc">Analysis of cinema attendance and film origins in Switzerland. A data perspective on Swiss cinematographic diversity.</p>
                     <span class="project-link">
-                        Voir le projet
+                        See project
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -1103,7 +1095,6 @@
                 </div>
             </a>
 
-            <!-- Huwise Skills -->
             <a href="https://github.com/SylvainO/Huwise-widgets-skills" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
                 <div class="project-header" style="background: linear-gradient(135deg,#F3E5F5,#E1BEE7);">
                     <span class="project-icon-large">⚙️</span>
@@ -1115,9 +1106,9 @@
                         <span class="project-client">GitHub · Huwise</span>
                     </div>
                     <h3 class="project-name">Huwise Widgets Skills · Claude</h3>
-                    <p class="project-desc">Kit de skills Claude open source pour développeurs sur la plateforme Huwise. Claude interagit directement avec les widgets ODS pour accélérer la création de portails data.</p>
+                    <p class="project-desc">Open source Claude skills kit for developers on the Huwise platform. Claude interacts directly with ODS widgets to accelerate data portal creation.</p>
                     <span class="project-link">
-                        Voir sur GitHub
+                        See on GitHub
                         <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                             <path d="M2 6.5h9M8 3l3.5 3.5L8 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -1134,8 +1125,8 @@
     <div class="section-inner">
         <div class="technos-header reveal">
             <p class="section-label technos-label">Technologies</p>
-            <h2 class="section-title technos-title">Les outils, adaptés à chaque projet.</h2>
-            <p class="section-sub technos-sub">Au service de l'utilisateur et de la compréhension des données, pas une fin en soi. Au choix, selon ce qui est le plus adapté à votre contexte.</p>
+            <h2 class="section-title technos-title">The right tools for each project.</h2>
+            <p class="section-sub technos-sub">At the service of users and data understanding, not an end in themselves. Selected based on what best fits your context.</p>
         </div>
         <div class="technos-grid reveal reveal-delay-1">
             <div class="techno-item">
@@ -1178,10 +1169,10 @@
 <section id="contact">
     <div class="section-inner">
         <p class="section-label contact-label">Contact</p>
-        <h2 class="section-title contact-title">Un projet ? Discutons.</h2>
+        <h2 class="section-title contact-title">A project? Let's talk.</h2>
         <p class="contact-tagline">
-            Disponible pour des missions data &amp; IA, des ateliers, ou un premier échange
-            sans engagement pour explorer vos besoins.
+            Available for data &amp; AI missions, workshops, or an initial
+            no-commitment conversation to explore your needs.
         </p>
         <div class="contact-cards">
             <a href="mailto:sylvain@ornettidataservices.com" class="contact-card">
@@ -1194,8 +1185,8 @@
             <a href="tel:+33786093448" class="contact-card">
                 <span class="contact-card-icon">📞</span>
                 <div>
-                    <div class="contact-card-label">Téléphone</div>
-                    <div class="contact-card-value">07 86 09 34 48</div>
+                    <div class="contact-card-label">Phone</div>
+                    <div class="contact-card-value">+33 7 86 09 34 48</div>
                 </div>
             </a>
             <a href="https://www.linkedin.com/in/sylvainornetti/" target="_blank" rel="noopener" class="contact-card">
@@ -1228,7 +1219,7 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    /* ── Hero canvas: réseau de nœuds animés ── */
+    /* ── Hero canvas ── */
     const canvas = document.getElementById('hero-canvas');
     const ctx    = canvas.getContext('2d');
     let W, H, nodes;

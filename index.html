@@ -12,9 +12,9 @@
     <link rel="alternate" hreflang="x-default" href="https://ornettidataservices.com/">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="logos/logo_odsp_cercle.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logos/logo_odsp_cercle.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="logos/logo_odsp_cercle.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logos/apple-touch-icon.png">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -374,11 +374,13 @@
 
         .about-stats {
             display: flex;
-            gap: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1.75rem 2.25rem;
             margin-top: 2.75rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(27,42,107,0.08);
         }
+        .about-stats > div { min-width: 110px; }
 
         .stat-number {
             font-family: 'DM Serif Display', serif;
@@ -430,6 +432,39 @@
             box-shadow: 0 8px 32px rgba(27,42,107,0.18);
         }
 
+        /* Photo → lien LinkedIn avec overlay au survol */
+        .about-photo-link {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            z-index: 1;
+            display: block;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .about-photo-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            background: rgba(16,26,80,0.78);
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+        .about-photo-link:hover .about-photo-overlay { opacity: 1; }
+        .about-photo-overlay svg { width: 34px; height: 34px; }
+        .about-photo-overlay span {
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
         .about-logo-badge {
             position: absolute;
             bottom: 10px;
@@ -477,6 +512,40 @@
             border-color: rgba(212,149,106,0.28);
             transform: translateY(-5px);
         }
+
+        /* Carte mise en avant — Ateliers IA */
+        .service-card.featured {
+            position: relative;
+            background: linear-gradient(160deg, rgba(212,149,106,0.16), rgba(212,149,106,0.05));
+            border-color: rgba(212,149,106,0.45);
+            box-shadow: 0 14px 44px rgba(212,149,106,0.18);
+        }
+        .service-card.featured:hover {
+            background: linear-gradient(160deg, rgba(212,149,106,0.22), rgba(212,149,106,0.08));
+            border-color: rgba(212,149,106,0.6);
+        }
+        @media (min-width: 921px) {
+            .service-card.featured { transform: translateY(-12px); }
+            .service-card.featured:hover { transform: translateY(-16px); }
+        }
+        .service-badge {
+            position: absolute;
+            top: -13px;
+            left: 2.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.9rem;
+            background: var(--peach);
+            color: var(--white);
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            box-shadow: 0 6px 16px rgba(212,149,106,0.35);
+        }
+        .service-card.featured .service-icon { background: rgba(212,149,106,0.28); }
 
         .service-icon {
             width: 52px;
@@ -568,13 +637,11 @@
             max-width: 150px;
             max-height: 72px;
             object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: filter 0.2s, opacity 0.2s;
+            opacity: 1;
+            transition: transform 0.25s ease;
         }
         .client-logo-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
+            transform: scale(1.08);
         }
 
         .client-logo-fallback {
@@ -858,16 +925,16 @@
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
         <span class="hero-eyebrow">
-            <span>✦</span> Services Data &amp; IA
+            <span>✦</span> Expertise IA &amp; Data
         </span>
         <h1 class="hero-title">
-            La donnée,<br>
+            L'IA et la donnée,<br>
             au service de ce qui<br>
             <em>compte vraiment.</em>
         </h1>
         <p class="hero-subtitle">
-            Livraison service data clé en main pour organisations publiques et privées :
-            de la conception à la communication.
+            J'aide vos équipes à livrer leurs cas d'usage via l'IA et un travail de fond
+            sur la donnée : du contrôle qualité, à la conception jusqu'à la communication.
         </p>
         <div class="hero-actions">
             <a href="#portfolio" class="btn-primary">
@@ -902,12 +969,16 @@
                 </p>
                 <div class="about-stats">
                     <div>
-                        <div class="stat-number">6+</div>
+                        <div class="stat-number">9+</div>
                         <div class="stat-label">Clients actifs</div>
                     </div>
                     <div>
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Piliers d'offre</div>
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Projets data &amp; IA livrés</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Ans d'XP chez des<br>éditeurs logiciel Data</div>
                     </div>
                     <div>
                         <div class="stat-number">100%</div>
@@ -919,6 +990,15 @@
                 <div class="about-logo-wrap">
                     <div class="about-logo-bg"></div>
                     <img src="logos/photoso.jpeg" alt="Sylvain Ornetti" class="about-photo">
+                    <a href="https://www.linkedin.com/in/sylvainornetti/" target="_blank" rel="noopener"
+                       class="about-photo-link" aria-label="Voir le profil LinkedIn de Sylvain Ornetti">
+                        <span class="about-photo-overlay">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/>
+                            </svg>
+                            <span>Voir mon LinkedIn</span>
+                        </span>
+                    </a>
                     <div class="about-logo-badge">
                         <img src="logos/logo_odsp_cercle.png" alt="Ornetti Data Services">
                     </div>
@@ -950,12 +1030,14 @@
                     <span class="tag">Open Data</span>
                 </div>
             </div>
-            <div class="service-card reveal reveal-delay-1">
+            <div class="service-card featured reveal reveal-delay-1">
+                <span class="service-badge">★ Le plus demandé</span>
                 <div class="service-icon">🤖</div>
                 <h3 class="service-title">Ateliers IA</h3>
                 <p class="service-desc">
-                    Détection et implémentation de cas d'usage IA adaptés à votre organisation.
-                    Des sessions concrètes, orientées résultats immédiats et appropriation durable.
+                    Souvent la première porte d'entrée chez mes clients : on détecte et on implémente
+                    ensemble les cas d'usage IA à plus fort impact pour votre organisation.
+                    Des sessions concrètes, orientées résultats immédiats et appropriation durable par vos équipes.
                 </p>
                 <div class="service-tags">
                     <span class="tag">Cas d'usage IA</span>
@@ -988,12 +1070,13 @@
             <h2 class="section-title clients-title">Des organisations qui comptent.</h2>
         </div>
         <div class="clients-strip">
-            <!-- Huwise -->
+            <!-- ─ Ligne 1 ─ -->
+            <!-- Ministère des Sports et de la Jeunesse -->
             <div class="client-logo-card">
-                <img src="logos/huwise.svg" alt="Huwise"
+                <img src="logos/logo_min_sports.png" alt="Ministère des Sports et de la Jeunesse"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                <span class="client-logo-fallback" style="display:none">Huwise</span>
-                <p class="client-name">Huwise</p>
+                <span class="client-logo-fallback" style="display:none">Ministère des Sports<br>et de la Jeunesse</span>
+                <p class="client-name">Ministère des Sports et de la Jeunesse</p>
             </div>
             <!-- MEN -->
             <div class="client-logo-card">
@@ -1002,19 +1085,20 @@
                 <span class="client-logo-fallback" style="display:none">Ministère de<br>l'Éducation Nationale</span>
                 <p class="client-name">Ministère de l'Éducation Nationale</p>
             </div>
-            <!-- Grand Est Développement -->
+            <!-- Dust — Partenaire Officiel -->
             <div class="client-logo-card">
-                <img src="logos/grand_est.jpeg" alt="Grand Est Développement"
+                <img src="logos/dust-ai-logo.jpg" alt="Dust — Partenaire Officiel"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                <span class="client-logo-fallback" style="display:none">Grand Est<br>Développement</span>
-                <p class="client-name">Grand Est Développement</p>
+                <span class="client-logo-fallback" style="display:none">Dust</span>
+                <p class="client-name">Partenaire Officiel Dust</p>
             </div>
-            <!-- Pas à Pas l'Enfant -->
+            <!-- ─ Ligne 2 ─ -->
+            <!-- CNAV -->
             <div class="client-logo-card">
-                <img src="logos/ppe.jpeg" alt="Pas à Pas l'Enfant"
+                <img src="logos/logo_cnav.png" alt="Caisse Nationale d'Assurance Vieillesse"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-                <span class="client-logo-fallback" style="display:none">Pas à Pas<br>l'Enfant</span>
-                <p class="client-name">Pas à Pas l'Enfant</p>
+                <span class="client-logo-fallback" style="display:none">Caisse Nationale<br>d'Assurance Vieillesse</span>
+                <p class="client-name">Caisse Nationale d'Assurance Vieillesse</p>
             </div>
             <!-- Région Académique Normandie -->
             <div class="client-logo-card">
@@ -1022,6 +1106,28 @@
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Région Académique<br>Normandie</span>
                 <p class="client-name">Région Académique Normandie</p>
+            </div>
+            <!-- Grand Est Développement -->
+            <div class="client-logo-card">
+                <img src="logos/grand_est.jpeg" alt="Grand Est Développement"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span class="client-logo-fallback" style="display:none">Grand Est<br>Développement</span>
+                <p class="client-name">Grand Est Développement</p>
+            </div>
+            <!-- ─ Ligne 3 ─ -->
+            <!-- Huwise -->
+            <div class="client-logo-card">
+                <img src="logos/huwise.svg" alt="Huwise"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span class="client-logo-fallback" style="display:none">Huwise</span>
+                <p class="client-name">Huwise</p>
+            </div>
+            <!-- Pas à Pas l'Enfant -->
+            <div class="client-logo-card">
+                <img src="logos/ppe.jpeg" alt="Pas à Pas l'Enfant"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span class="client-logo-fallback" style="display:none">Pas à Pas<br>l'Enfant</span>
+                <p class="client-name">Pas à Pas l'Enfant</p>
             </div>
             <!-- Datactivist -->
             <div class="client-logo-card">

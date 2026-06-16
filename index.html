@@ -83,7 +83,7 @@
             --text-light:  #718096;
         }
 
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 90px; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -1013,7 +1013,7 @@
             <p class="section-sub services-sub">Un spectre complet, de l'infrastructure à la communication.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card reveal">
+            <div class="service-card reveal" id="service-data">
                 <div class="service-icon">📊</div>
                 <h3 class="service-title">Services data clé en main</h3>
                 <p class="service-desc">
@@ -1026,8 +1026,7 @@
                     <span class="tag">Open Data</span>
                 </div>
             </div>
-            <div class="service-card featured reveal reveal-delay-1">
-                <span class="service-badge">★ Le plus demandé</span>
+            <div class="service-card featured reveal reveal-delay-1" id="service-ateliers-ia">
                 <div class="service-icon">🤖</div>
                 <h3 class="service-title">Ateliers IA</h3>
                 <p class="service-desc">
@@ -1041,7 +1040,7 @@
                     <span class="tag">Formation</span>
                 </div>
             </div>
-            <div class="service-card reveal reveal-delay-2">
+            <div class="service-card reveal reveal-delay-2" id="service-communication">
                 <div class="service-icon">📡</div>
                 <h3 class="service-title">Communication data</h3>
                 <p class="service-desc">
@@ -1138,13 +1137,13 @@
     <div class="section-inner">
         <div class="portfolio-header">
             <p class="section-label portfolio-label">Portfolio</p>
-            <h2 class="section-title portfolio-title">Des projets qui parlent d'eux-mêmes.</h2>
+            <h2 class="section-title portfolio-title">Des projets qui font parler la donnée.</h2>
             <p class="section-sub portfolio-sub">Visualisation, dashboards publics, ressources open source.</p>
         </div>
         <div class="portfolio-grid">
 
             <!-- Vélo -->
-            <a href="https://sylvaino.github.io/Savoir-Rouler-V-lo-/" target="_blank" rel="noopener" class="project-card reveal">
+            <a href="https://sylvaino.github.io/Savoir-Rouler-V-lo-/" target="_blank" rel="noopener" class="project-card reveal" id="projet-velo">
                 <div class="project-header" style="background: linear-gradient(135deg,#E8F5E9,#C8E6C9);">
                     <span class="project-icon-large">🚲</span>
                 </div>
@@ -1166,7 +1165,7 @@
             </a>
 
             <!-- Gestes auto-infligés -->
-            <a href="https://sylvaino.github.io/dataviz-gestes-autoinfliges-par-age/" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
+            <a href="https://sylvaino.github.io/dataviz-gestes-autoinfliges-par-age/" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1" id="projet-gestes-autoinfliges">
                 <div class="project-header" style="background: linear-gradient(135deg,#FFF3E0,#FFCCBC);">
                     <span class="project-icon-large">📈</span>
                 </div>
@@ -1188,7 +1187,7 @@
             </a>
 
             <!-- Cinéma Suisse -->
-            <a href="https://sylvaino.github.io/Statistiques-Affluence-Cinema-Suisse/" target="_blank" rel="noopener" class="project-card reveal">
+            <a href="https://sylvaino.github.io/Statistiques-Affluence-Cinema-Suisse/" target="_blank" rel="noopener" class="project-card reveal" id="projet-cinema-suisse">
                 <div class="project-header" style="background: linear-gradient(135deg,#E8EAF6,#C5CAE9);">
                     <span class="project-icon-large">🎬</span>
                 </div>
@@ -1210,7 +1209,7 @@
             </a>
 
             <!-- Huwise Skills -->
-            <a href="https://github.com/SylvainO/Huwise-widgets-skills" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
+            <a href="https://github.com/SylvainO/Huwise-widgets-skills" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1" id="projet-huwise-skills">
                 <div class="project-header" style="background: linear-gradient(135deg,#F3E5F5,#E1BEE7);">
                     <span class="project-icon-large">⚙️</span>
                 </div>

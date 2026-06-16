@@ -83,7 +83,7 @@
             --text-light:  #718096;
         }
 
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 90px; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -1017,7 +1017,7 @@
             <p class="section-sub services-sub">End-to-end coverage, from infrastructure to communication.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card reveal">
+            <div class="service-card reveal" id="service-data">
                 <div class="service-icon">📊</div>
                 <h3 class="service-title">Turnkey Data Services</h3>
                 <p class="service-desc">
@@ -1030,8 +1030,7 @@
                     <span class="tag">Open Data</span>
                 </div>
             </div>
-            <div class="service-card featured reveal reveal-delay-1">
-                <span class="service-badge">★ Most requested</span>
+            <div class="service-card featured reveal reveal-delay-1" id="service-ateliers-ia">
                 <div class="service-icon">🤖</div>
                 <h3 class="service-title">AI Workshops</h3>
                 <p class="service-desc">
@@ -1045,7 +1044,7 @@
                     <span class="tag">Training</span>
                 </div>
             </div>
-            <div class="service-card reveal reveal-delay-2">
+            <div class="service-card reveal reveal-delay-2" id="service-communication">
                 <div class="service-icon">📡</div>
                 <h3 class="service-title">Data Communication</h3>
                 <p class="service-desc">
@@ -1136,12 +1135,12 @@
     <div class="section-inner">
         <div class="portfolio-header">
             <p class="section-label portfolio-label">Portfolio</p>
-            <h2 class="section-title portfolio-title">Projects that speak for themselves.</h2>
+            <h2 class="section-title portfolio-title">Projects that make data speak.</h2>
             <p class="section-sub portfolio-sub">Visualization, public dashboards, open source resources.</p>
         </div>
         <div class="portfolio-grid">
 
-            <a href="https://sylvaino.github.io/Savoir-Rouler-V-lo-/" target="_blank" rel="noopener" class="project-card reveal">
+            <a href="https://sylvaino.github.io/Savoir-Rouler-V-lo-/" target="_blank" rel="noopener" class="project-card reveal" id="projet-velo">
                 <div class="project-header" style="background: linear-gradient(135deg,#E8F5E9,#C8E6C9);">
                     <span class="project-icon-large">🚲</span>
                 </div>
@@ -1162,7 +1161,7 @@
                 </div>
             </a>
 
-            <a href="https://sylvaino.github.io/dataviz-gestes-autoinfliges-par-age/" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1">
+            <a href="https://sylvaino.github.io/dataviz-gestes-autoinfliges-par-age/" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1" id="projet-gestes-autoinfliges">
                 <div class="project-header" style="background: linear-gradient(135deg,#FFF3E0,#FFCCBC);">
                     <span class="project-icon-large">📈</span>
                 </div>

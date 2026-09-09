@@ -253,7 +253,7 @@
             font-size: 1.05rem;
             color: rgba(255,255,255,0.6);
             margin-bottom: 2.75rem;
-            max-width: 500px;
+            max-width: 600px;
             line-height: 1.75;
         }
 
@@ -492,15 +492,39 @@
         .services-header { margin-bottom: 3.5rem; }
         .services-label { color: var(--peach); }
         .services-title { color: var(--white); }
-        .services-sub { color: rgba(255,255,255,0.55); }
+        .services-sub { color: rgba(255,255,255,0.55); max-width: none; }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* "Pain point" block at the top of a service card */
+        .service-pain {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--peach-light);
+            line-height: 1.65;
+            margin-bottom: 1.1rem;
+            padding-left: 0.95rem;
+            border-left: 2px solid rgba(212,149,106,0.45);
+        }
+        .service-solution-label {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.5rem;
         }
 
         .service-card {
+            display: flex;
+            flex-direction: column;
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 20px;
@@ -525,8 +549,7 @@
             border-color: rgba(212,149,106,0.6);
         }
         @media (min-width: 921px) {
-            .service-card.featured { transform: translateY(-12px); }
-            .service-card.featured:hover { transform: translateY(-16px); }
+            .service-card.featured:hover { transform: translateY(-8px); }
         }
         .service-badge {
             position: absolute;
@@ -576,7 +599,8 @@
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-top: 1.75rem;
+            margin-top: auto;
+            padding-top: 1.75rem;
         }
 
         .tag {
@@ -748,8 +772,30 @@
         .project-link svg { transition: transform 0.2s; }
         .project-card:hover .project-link svg { transform: translateX(4px); }
 
+        /* ─── LINKEDIN ─── */
+        #linkedin { background: var(--white); }
+        .linkedin-header { text-align: center; margin-bottom: 3rem; }
+        .linkedin-label { color: var(--peach); }
+        .linkedin-title { color: var(--navy); }
+        .linkedin-sub { color: var(--text-medium); margin: 0 auto; }
+
+        .linkedin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .linkedin-embed {
+            width: 100%;
+            height: 560px;
+            border: 1px solid rgba(27,42,107,0.09);
+            border-radius: 16px;
+            background: var(--gray-light);
+        }
+
         /* ─── TECHNOS ─── */
-        #technos { background: var(--white); padding: 5rem 3rem; }
+        #technos { background: var(--gray-light); padding: 5rem 3rem; }
         .technos-header { text-align: center; margin-bottom: 3rem; }
         .technos-label { color: var(--peach); }
         .technos-title { color: var(--navy); }
@@ -888,6 +934,7 @@
 
             .services-grid { grid-template-columns: 1fr; }
             .portfolio-grid { grid-template-columns: 1fr; }
+            .linkedin-grid { grid-template-columns: 1fr; }
             .hero-content { padding: 0 1.5rem; }
 
             .nav-links { display: none; }
@@ -929,12 +976,13 @@
         </span>
         <h1 class="hero-title">
             AI and data,<br>
-            for what<br>
-            <em>truly counts.</em>
+            for what truly counts:<br>
+            <em>your users.</em>
         </h1>
         <p class="hero-subtitle">
-            I help your teams deliver their use cases through AI and deep work on
-            data: from quality control, to design, all the way to communication.
+            Data with real potential, but underused or hard to exploit, for your users,
+            clients or partners? I help you deliver turnkey data services through deep work
+            on the data: from quality, to design, all the way to delivery.
         </p>
         <div class="hero-actions">
             <a href="#portfolio" class="btn-primary">
@@ -1013,48 +1061,46 @@
     <div class="section-inner">
         <div class="services-header">
             <p class="section-label services-label">Services</p>
-            <h2 class="section-title services-title">Three ways to support you.</h2>
-            <p class="section-sub services-sub">End-to-end coverage, from infrastructure to communication.</p>
+            <h2 class="section-title services-title">Services tailored to your needs.</h2>
+            <p class="section-sub services-sub">Two ways to support you, each addressing a real pain point.</p>
         </div>
         <div class="services-grid">
             <div class="service-card reveal" id="service-data">
                 <div class="service-icon">📊</div>
                 <h3 class="service-title">Turnkey Data Services</h3>
+                <p class="service-pain">
+                    Need to offer data services to your stakeholders, but obstacles to
+                    overcome? Data quality, collection, formatting…
+                </p>
+                <span class="service-solution-label">Solution</span>
                 <p class="service-desc">
-                    ETL pipelines, interactive dashboards, data modeling. I handle
-                    your entire project, from data collection to visualization.
+                    I handle your entire project, from collection to visualization: deep work
+                    on the data — quality, processing chains, interactive dashboards — all the
+                    way to delivering a service your users can actually rely on.
                 </p>
                 <div class="service-tags">
-                    <span class="tag">ETL / Pipelines</span>
+                    <span class="tag">Data quality</span>
+                    <span class="tag">Collection &amp; processing</span>
                     <span class="tag">Dashboards</span>
-                    <span class="tag">Open Data</span>
                 </div>
             </div>
             <div class="service-card featured reveal reveal-delay-1" id="service-ateliers-ia">
                 <div class="service-icon">🤖</div>
                 <h3 class="service-title">AI Workshops</h3>
+                <p class="service-pain">
+                    Need to deliver AI use cases, but a lack of clarity or traction to
+                    really get moving?
+                </p>
+                <span class="service-solution-label">Solution</span>
                 <p class="service-desc">
-                    Often the first way I start working with clients: together we identify and implement
-                    the highest-impact AI use cases for your organization.
-                    Practical sessions focused on immediate results and lasting adoption by your teams.
+                    An AI workshop to define and implement your use cases together: from
+                    prioritizing the highest-impact ideas to putting them into practice,
+                    with lasting adoption by your teams.
                 </p>
                 <div class="service-tags">
                     <span class="tag">AI Use Cases</span>
-                    <span class="tag">LLM</span>
-                    <span class="tag">Training</span>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-2" id="service-communication">
-                <div class="service-icon">📡</div>
-                <h3 class="service-title">Data Communication</h3>
-                <p class="service-desc">
-                    Turning your data into compelling stories for your audiences. From visual storytelling
-                    to high-visibility use cases. Data as a communication lever.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">DataViz</span>
-                    <span class="tag">Storytelling</span>
-                    <span class="tag">Communication</span>
+                    <span class="tag">Definition</span>
+                    <span class="tag">Implementation</span>
                 </div>
             </div>
         </div>
@@ -1246,6 +1292,28 @@
                 </div>
             </a>
 
+        </div>
+    </div>
+</section>
+
+<!-- ═══ LINKEDIN ═══ -->
+<section id="linkedin">
+    <div class="section-inner">
+        <div class="linkedin-header reveal">
+            <p class="section-label linkedin-label">In the field</p>
+            <h2 class="section-title linkedin-title">Talked about on LinkedIn.</h2>
+            <p class="section-sub linkedin-sub">Real feedback on my recent work and use cases.</p>
+        </div>
+        <div class="linkedin-grid reveal reveal-delay-1">
+            <iframe class="linkedin-embed"
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7396897528392355841"
+                title="LinkedIn post by Sylvain Ornetti" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <iframe class="linkedin-embed"
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7437767871373553664"
+                title="LinkedIn post by Sylvain Ornetti" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <iframe class="linkedin-embed"
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7392296257261674496"
+                title="LinkedIn post by Sylvain Ornetti" frameborder="0" allowfullscreen loading="lazy"></iframe>
         </div>
     </div>
 </section>

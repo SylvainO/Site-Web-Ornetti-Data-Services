@@ -253,7 +253,7 @@
             font-size: 1.05rem;
             color: rgba(255,255,255,0.6);
             margin-bottom: 2.75rem;
-            max-width: 500px;
+            max-width: 600px;
             line-height: 1.75;
         }
 
@@ -492,15 +492,39 @@
         .services-header { margin-bottom: 3.5rem; }
         .services-label { color: var(--peach); }
         .services-title { color: var(--white); }
-        .services-sub { color: rgba(255,255,255,0.55); }
+        .services-sub { color: rgba(255,255,255,0.55); max-width: none; }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* Bloc "pain point" en tête de carte service */
+        .service-pain {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--peach-light);
+            line-height: 1.65;
+            margin-bottom: 1.1rem;
+            padding-left: 0.95rem;
+            border-left: 2px solid rgba(212,149,106,0.45);
+        }
+        .service-solution-label {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.5rem;
         }
 
         .service-card {
+            display: flex;
+            flex-direction: column;
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 20px;
@@ -525,8 +549,7 @@
             border-color: rgba(212,149,106,0.6);
         }
         @media (min-width: 921px) {
-            .service-card.featured { transform: translateY(-12px); }
-            .service-card.featured:hover { transform: translateY(-16px); }
+            .service-card.featured:hover { transform: translateY(-8px); }
         }
         .service-badge {
             position: absolute;
@@ -576,7 +599,8 @@
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-top: 1.75rem;
+            margin-top: auto;
+            padding-top: 1.75rem;
         }
 
         .tag {
@@ -748,6 +772,28 @@
         .project-link svg { transition: transform 0.2s; }
         .project-card:hover .project-link svg { transform: translateX(4px); }
 
+        /* ─── LINKEDIN ─── */
+        #linkedin { background: var(--white); }
+        .linkedin-header { text-align: center; margin-bottom: 3rem; }
+        .linkedin-label { color: var(--peach); }
+        .linkedin-title { color: var(--navy); }
+        .linkedin-sub { color: var(--text-medium); margin: 0 auto; }
+
+        .linkedin-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .linkedin-embed {
+            width: 100%;
+            height: 560px;
+            border: 1px solid rgba(27,42,107,0.09);
+            border-radius: 16px;
+            background: var(--gray-light);
+        }
+
         /* ─── CONTACT ─── */
         #contact {
             background: var(--navy-dark);
@@ -813,7 +859,7 @@
         }
 
         /* ─── TECHNOS ─── */
-        #technos { background: var(--white); padding: 5rem 3rem; }
+        #technos { background: var(--gray-light); padding: 5rem 3rem; }
         .technos-header { text-align: center; margin-bottom: 3rem; }
         .technos-label { color: var(--peach); }
         .technos-title { color: var(--navy); }
@@ -888,6 +934,7 @@
 
             .services-grid { grid-template-columns: 1fr; }
             .portfolio-grid { grid-template-columns: 1fr; }
+            .linkedin-grid { grid-template-columns: 1fr; }
             .hero-content { padding: 0 1.5rem; }
 
             .nav-links { display: none; }
@@ -913,9 +960,9 @@
     </div>
     <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#clients">Clients</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Offre</a></li>
+        <li><a href="#clients">Références client</a></li>
+        <li><a href="#portfolio">Projets</a></li>
         <li><a href="#contact" class="nav-cta">Me contacter</a></li>
     </ul>
 </nav>
@@ -929,12 +976,14 @@
         </span>
         <h1 class="hero-title">
             L'IA et la donnée,<br>
-            au service de ce qui<br>
-            <em>compte vraiment.</em>
+            au service de ce qui compte<br>
+            vraiment : <em>vos utilisateurs.</em>
         </h1>
         <p class="hero-subtitle">
-            J'aide vos équipes à livrer leurs cas d'usage via l'IA et un travail de fond
-            sur la donnée : du contrôle qualité, à la conception jusqu'à la communication.
+            Des données à potentiel, mais peu exploitées ou exploitables, pour vos
+            utilisateurs, clients ou partenaires ? Je vous aide à livrer des services data
+            clés en main grâce à un travail de fond sur la donnée : de la mise en qualité,
+            à la conception jusqu'à la livraison.
         </p>
         <div class="hero-actions">
             <a href="#portfolio" class="btn-primary">
@@ -1008,49 +1057,48 @@
 <section id="services">
     <div class="section-inner">
         <div class="services-header">
-            <p class="section-label services-label">Services</p>
-            <h2 class="section-title services-title">Trois façons de vous accompagner.</h2>
-            <p class="section-sub services-sub">Un spectre complet, de l'infrastructure à la communication.</p>
+            <p class="section-label services-label">Offre de Services</p>
+            <h2 class="section-title services-title">Des services adaptés à vos besoins.</h2>
+            <p class="section-sub services-sub">Deux façons de vous accompagner, pour adresser vos points de douleur.</p>
         </div>
         <div class="services-grid">
             <div class="service-card reveal" id="service-data">
                 <div class="service-icon">📊</div>
                 <h3 class="service-title">Services data clé en main</h3>
+                <p class="service-pain">
+                    Besoin d'offrir des services data à vos parties prenantes, mais des obstacles
+                    à lever ? Qualité des données, collecte, mise en forme…
+                </p>
+                <span class="service-solution-label">Solution</span>
                 <p class="service-desc">
-                    Pipeline ETL, dashboards interactifs, modélisation data. Je prends en charge
-                    l'intégralité de votre projet, de la collecte à la visualisation.
+                    Je prends en charge l'intégralité de votre projet, de la collecte à la
+                    visualisation : un travail de fond sur la donnée — mise en qualité, chaînes
+                    de traitement, tableaux de bord interactifs — jusqu'à la livraison d'un
+                    service exploitable par vos utilisateurs.
                 </p>
                 <div class="service-tags">
-                    <span class="tag">ETL / Pipelines</span>
-                    <span class="tag">Dashboards</span>
-                    <span class="tag">Open Data</span>
+                    <span class="tag">Mise en qualité</span>
+                    <span class="tag">Collecte &amp; traitement</span>
+                    <span class="tag">Tableaux de bord</span>
                 </div>
             </div>
             <div class="service-card featured reveal reveal-delay-1" id="service-ateliers-ia">
                 <div class="service-icon">🤖</div>
                 <h3 class="service-title">Ateliers IA</h3>
+                <p class="service-pain">
+                    Besoin de délivrer des cas d'usage IA, mais un manque de clarté ou de
+                    traction pour passer réellement à l'action ?
+                </p>
+                <span class="service-solution-label">Solution</span>
                 <p class="service-desc">
-                    Souvent la première porte d'entrée chez mes clients : on détecte et on implémente
-                    ensemble les cas d'usage IA à plus fort impact pour votre organisation.
-                    Des sessions concrètes, orientées résultats immédiats et appropriation durable par vos équipes.
+                    Un atelier IA pour définir et implémenter ensemble vos cas d'usage : de la
+                    priorisation des idées à plus fort impact jusqu'à leur mise en œuvre concrète,
+                    avec une appropriation durable par vos équipes.
                 </p>
                 <div class="service-tags">
                     <span class="tag">Cas d'usage IA</span>
-                    <span class="tag">LLM</span>
-                    <span class="tag">Formation</span>
-                </div>
-            </div>
-            <div class="service-card reveal reveal-delay-2" id="service-communication">
-                <div class="service-icon">📡</div>
-                <h3 class="service-title">Communication data</h3>
-                <p class="service-desc">
-                    Mise en récit de vos données pour toucher vos publics. Du storytelling visuel
-                    aux cas d'usage à forte visibilité. La donnée comme levier de communication.
-                </p>
-                <div class="service-tags">
-                    <span class="tag">DataViz</span>
-                    <span class="tag">Storytelling</span>
-                    <span class="tag">Communication</span>
+                    <span class="tag">Définition</span>
+                    <span class="tag">Implémentation</span>
                 </div>
             </div>
         </div>
@@ -1252,6 +1300,28 @@
                 </div>
             </a>
 
+        </div>
+    </div>
+</section>
+
+<!-- ═══ LINKEDIN ═══ -->
+<section id="linkedin">
+    <div class="section-inner">
+        <div class="linkedin-header reveal">
+            <p class="section-label linkedin-label">Sur le terrain</p>
+            <h2 class="section-title linkedin-title">On en parle sur LinkedIn.</h2>
+            <p class="section-sub linkedin-sub">Retours concrets sur mes prestations et cas d'usage récents.</p>
+        </div>
+        <div class="linkedin-grid reveal reveal-delay-1">
+            <iframe class="linkedin-embed"
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7396897528392355841"
+                title="Post LinkedIn de Sylvain Ornetti" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <iframe class="linkedin-embed"
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7437767871373553664"
+                title="Post LinkedIn de Sylvain Ornetti" frameborder="0" allowfullscreen loading="lazy"></iframe>
+            <iframe class="linkedin-embed"
+                src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7392296257261674496"
+                title="Post LinkedIn de Sylvain Ornetti" frameborder="0" allowfullscreen loading="lazy"></iframe>
         </div>
     </div>
 </section>

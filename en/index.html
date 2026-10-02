@@ -795,7 +795,7 @@
         }
 
         /* ─── TECHNOS ─── */
-        #technos { background: var(--gray-light); padding: 5rem 3rem; }
+        #technos { background: var(--white); padding: 5rem 3rem; }
         .technos-header { text-align: center; margin-bottom: 3rem; }
         .technos-label { color: var(--peach); }
         .technos-title { color: var(--navy); }
@@ -845,6 +845,69 @@
             color: var(--text-medium);
             text-align: center;
         }
+
+        /* ─── CERTIFICATION HUWISE ─── */
+        .techno-cert {
+            display: flex;
+            align-items: center;
+            gap: 2.25rem;
+            max-width: 760px;
+            margin: 4rem auto 0;
+            padding: 1.75rem;
+            background: var(--gray-light);
+            border: 1px solid #ECECF0;
+            border-radius: 20px;
+        }
+        .cert-thumb {
+            flex-shrink: 0;
+            display: block;
+            width: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(27,42,107,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cert-thumb:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(27,42,107,0.18);
+        }
+        .cert-thumb img { display: block; width: 100%; height: auto; }
+        .cert-body { flex: 1; min-width: 0; }
+        .cert-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--peach);
+            background: var(--peach-pale);
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            margin-bottom: 0.8rem;
+        }
+        .cert-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 0.6rem;
+        }
+        .cert-desc {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--text-medium);
+            margin: 0 0 1rem;
+        }
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--peach);
+            text-decoration: none;
+            transition: gap 0.25s ease;
+        }
+        .cert-link:hover { gap: 0.6rem; }
 
         /* ─── CONTACT ─── */
         #contact {
@@ -940,6 +1003,10 @@
             .nav-links { display: none; }
 
             .contact-cards { flex-direction: column; align-items: stretch; max-width: 360px; margin-left: auto; margin-right: auto; }
+
+            .techno-cert { flex-direction: column; text-align: center; gap: 1.5rem; }
+            .cert-thumb { width: 100%; max-width: 340px; margin: 0 auto; }
+            .cert-link { justify-content: center; }
         }
     </style>
 </head>
@@ -1331,6 +1398,10 @@
         </div>
         <div class="technos-grid reveal reveal-delay-1">
             <div class="techno-item">
+                <img src="../logos/huwise.svg" alt="Huwise">
+                <span class="techno-name">Huwise</span>
+            </div>
+            <div class="techno-item">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML5">
                 <span class="techno-name">HTML5</span>
             </div>
@@ -1361,6 +1432,17 @@
             <div class="techno-item">
                 <div class="techno-badge" style="background: var(--navy-light); font-size: 0.8rem;">APIs</div>
                 <span class="techno-name">APIs</span>
+            </div>
+        </div>
+        <div class="techno-cert reveal reveal-delay-2">
+            <a href="../logos/certification-huwise.pdf" target="_blank" rel="noopener" class="cert-thumb">
+                <img src="../logos/certification-huwise.png" alt="Huwise Certification — Sylvain Ornetti, Certified Partner">
+            </a>
+            <div class="cert-body">
+                <span class="cert-badge">Certification</span>
+                <h3 class="cert-title">Huwise Certified Partner</h3>
+                <p class="cert-desc">Recognized expertise on the Huwise platform (formerly OpenDataSoft): data publishing and governance, APIs, and open data portals.</p>
+                <a href="../logos/certification-huwise.pdf" target="_blank" rel="noopener" class="cert-link">View the certificate →</a>
             </div>
         </div>
     </div>

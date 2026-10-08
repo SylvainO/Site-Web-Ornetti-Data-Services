@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Diagnostic IA : une méthode claire et synthétique pour investir juste dans l'IA, de la prise de recul avec vos dirigeants à une feuille de route actionnable.">
+    <meta name="robots" content="index, follow">
+    <title>Diagnostic IA · Ornetti Data Services</title>
+    <link rel="canonical" href="https://ornettidataservices.com/diagnostic-ia.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logos/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Ornetti Data Services">
+    <meta property="og:url" content="https://ornettidataservices.com/diagnostic-ia.html">
+    <meta property="og:title" content="Diagnostic IA · Ornetti Data Services">
+    <meta property="og:description" content="Une méthode claire et synthétique pour investir juste dans l'IA : évaluation de maturité, cas d'usage priorisés et feuille de route actionnable.">
+    <meta property="og:image" content="https://ornettidataservices.com/logos/logo_odsp_cercle.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:        #1B2A6B;
+            --navy-dark:   #101A50;
+            --navy-light:  #2d3f8a;
+            --peach:       #D4956A;
+            --peach-light: #E8B48A;
+            --peach-pale:  #F5EBE0;
+            --white:       #FFFFFF;
+            --gray-light:  #F7F7F8;
+            --text-dark:   #1B2A6B;
+            --text-medium: #4A5568;
+            --text-light:  #718096;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 1px 24px rgba(27,42,107,0.08);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-logo { width: 38px; height: 38px; object-fit: contain; }
+        .nav-name { font-weight: 700; font-size: 0.95rem; color: var(--navy); }
+        .nav-back {
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--navy); }
+
+        /* ─── HERO ─── */
+        .diag-hero {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 9rem 3rem 5rem;
+            text-align: center;
+        }
+        .diag-hero-inner { max-width: 820px; margin: 0 auto; }
+        .diag-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.8rem, 7vw, 4.4rem);
+            line-height: 1.08;
+            margin-bottom: 0.8rem;
+        }
+        .diag-tagline {
+            font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+            font-weight: 500;
+            color: var(--peach-light);
+            line-height: 1.5;
+        }
+
+        /* ─── MÉTHODE (schéma) ─── */
+        .method {
+            padding: 5.5rem 3rem;
+            background: var(--gray-light);
+        }
+        .method-inner { max-width: 1040px; margin: 0 auto; }
+        .method-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.7rem;
+        }
+        .method-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+        .method-sub { color: var(--text-light); max-width: 560px; margin: 0 auto; }
+
+        /* ─── Les 3 phases (schéma) ─── */
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            align-items: stretch;
+        }
+        .phase-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid rgba(27,42,107,0.07);
+            border-radius: 18px;
+            padding: 2.1rem 1.7rem 1.7rem;
+            box-shadow: 0 6px 22px rgba(27,42,107,0.07);
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        /* Accent haut de carte */
+        .phase-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            border-radius: 18px 18px 0 0;
+            background: linear-gradient(90deg, var(--peach), var(--peach-light));
+        }
+        .phase-card:hover {
+            box-shadow: 0 16px 40px rgba(27,42,107,0.13);
+            transform: translateY(-4px);
+        }
+        /* Connecteur de progression entre phases */
+        .phase-card:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            top: 50%;
+            right: -0.875rem;
+            transform: translate(50%, -50%);
+            color: var(--peach);
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1;
+            z-index: 2;
+        }
+        .phase-head {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+        .phase-num {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 16px rgba(27,42,107,0.18);
+        }
+        .phase-label {
+            display: block;
+            font-size: 0.66rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.2rem;
+        }
+        .phase-name {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.3;
+            min-height: 2.6rem;
+        }
+        .phase-need {
+            font-size: 0.87rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            padding-left: 0.85rem;
+            border-left: 2px solid rgba(212,149,106,0.4);
+            margin-bottom: 1.3rem;
+            min-height: 5.7rem;
+        }
+        .field-label {
+            display: block;
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+        .phase-need .field-label { color: var(--peach); }
+        .phase-how .field-label { color: var(--text-light); }
+        .phase-how ul {
+            list-style: none;
+            margin: 0 0 1.5rem;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .phase-how li {
+            position: relative;
+            padding-left: 1.1rem;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        .phase-how li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.52rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--peach);
+        }
+        .phase-deliverable {
+            margin-top: auto;
+            background: var(--peach-pale);
+            border-radius: 12px;
+            padding: 0.9rem 1rem;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.45;
+            min-height: 6.9rem;
+        }
+        .phase-deliverable .field-label { color: var(--peach); }
+
+        /* ─── CTA ─── */
+        .diag-cta {
+            background: var(--navy-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 3rem;
+        }
+        .diag-cta-text {
+            font-size: clamp(1.25rem, 2.6vw, 1.65rem);
+            font-weight: 500;
+            line-height: 1.45;
+            max-width: 680px;
+            margin: 0 auto 2.2rem;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.9rem;
+            background: var(--peach);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: var(--peach-light); transform: translateY(-2px); }
+
+        .footer-copy {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            background: var(--navy-dark);
+        }
+
+        @media (max-width: 860px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-name { display: none; }
+            .diag-hero { padding: 7.5rem 1.5rem 4rem; }
+            .method { padding: 4rem 1.5rem; }
+            .phases { grid-template-columns: 1fr; gap: 2.4rem; }
+            .phase-need, .phase-name, .phase-deliverable { min-height: 0; }
+            .phase-card:not(:last-child)::after {
+                content: "↓";
+                top: auto;
+                bottom: -1.75rem;
+                right: 50%;
+                transform: translate(50%, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+    <a href="index.html" class="nav-brand">
+        <img src="logos/logo_odsp_cercle.png" alt="Ornetti Data Services" class="nav-logo">
+        <span class="nav-name">Ornetti Data Services</span>
+    </a>
+    <a href="index.html#services" class="nav-back">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M12.5 7.5h-10M6 3.5l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Retour à l'offre
+    </a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="diag-hero">
+    <div class="diag-hero-inner">
+        <h1 class="diag-title">Diagnostic IA</h1>
+        <p class="diag-tagline">Pour investir dans des projets IA, cadrés et réalistes.</p>
+    </div>
+</section>
+
+<!-- ═══ MÉTHODE ═══ -->
+<section class="method">
+    <div class="method-inner">
+        <div class="method-header">
+            <p class="section-label">La méthode</p>
+            <h2 class="method-title">Un parcours en 3 phases.</h2>
+            <p class="method-sub">Une démarche d'ingénierie, de la prise de recul avec vos dirigeants à une feuille de route actionnable.</p>
+        </div>
+
+        <div class="phases">
+            <!-- Phase 1 -->
+            <article class="phase-card">
+                <div class="phase-head">
+                    <span class="phase-num">1</span>
+                    <div>
+                        <span class="phase-label">Phase 1</span>
+                        <h3 class="phase-name">Ateliers et prise de recul avec le top management</h3>
+                    </div>
+                </div>
+                <p class="phase-need">
+                    <span class="field-label">Besoin</span>
+                    Éprouver réellement l'IA : comprendre son fonctionnement, le patrimoine dont
+                    elle a besoin, et prendre du recul.
+                </p>
+                <div class="phase-how">
+                    <span class="field-label">Comment ?</span>
+                    <ul>
+                        <li>Compréhension des concepts de l'IA</li>
+                        <li>Ateliers IA pour clarifier usages et non-usages</li>
+                        <li>Livraison d'un premier cas d'usage</li>
+                        <li>Identification de vos objectifs business</li>
+                    </ul>
+                </div>
+                <div class="phase-deliverable">
+                    <span class="field-label">Livrable</span>
+                    Document de cadrage pour l'audit des assets IA
+                </div>
+            </article>
+
+            <!-- Phase 2 -->
+            <article class="phase-card">
+                <div class="phase-head">
+                    <span class="phase-num">2</span>
+                    <div>
+                        <span class="phase-label">Phase 2</span>
+                        <h3 class="phase-name">Votre patrimoine IA</h3>
+                    </div>
+                </div>
+                <p class="phase-need">
+                    <span class="field-label">Besoin</span>
+                    Dresser l'état des lieux de vos assets IA : données, cas d'usage et ressources.
+                </p>
+                <div class="phase-how">
+                    <span class="field-label">Comment ?</span>
+                    <ul>
+                        <li>Cartographie des données : structurées, générées, manquantes</li>
+                        <li>Évaluation des initiatives tech déjà livrées</li>
+                        <li>Identification des ressources (documentation) et des compétences des collaborateurs</li>
+                    </ul>
+                </div>
+                <div class="phase-deliverable">
+                    <span class="field-label">Livrable</span>
+                    Rapport d'audit des données, incluant recommandations et matrice des compétences
+                </div>
+            </article>
+
+            <!-- Phase 3 -->
+            <article class="phase-card">
+                <div class="phase-head">
+                    <span class="phase-num">3</span>
+                    <div>
+                        <span class="phase-label">Phase 3</span>
+                        <h3 class="phase-name">Priorisation des cas d'usage et feuille de route</h3>
+                    </div>
+                </div>
+                <p class="phase-need">
+                    <span class="field-label">Besoin</span>
+                    Investir sur des chantiers réalistes, à impact opérationnel et business.
+                </p>
+                <div class="phase-how">
+                    <span class="field-label">Comment ?</span>
+                    <ul>
+                        <li>Identification des quick wins</li>
+                        <li>Identification des projets structurants</li>
+                        <li>Recommandations de mise en œuvre (ressources internes, externes)</li>
+                    </ul>
+                </div>
+                <div class="phase-deliverable">
+                    <span class="field-label">Livrable</span>
+                    Feuille de route data &amp; IA, avec le périmétrage d'un quick win et d'un sujet structurant
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="diag-cta">
+    <p class="diag-cta-text">Un premier échange pour découvrir la méthode, identifier vos points de douleur et prendre du recul&nbsp;?</p>
+    <a href="index.html#contact" class="btn-primary">
+        Me contacter
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
+</section>
+
+<p class="footer-copy">© 2026 Ornetti Data Services · ornettidataservices.com</p>
+
+</body>
+</html>

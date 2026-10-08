@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sylvain Ornetti — consultant data & IA indépendant. Services data clé en main et ateliers IA pour organisations publiques et privées : un travail de fond sur la donnée, de la mise en qualité à la livraison, au service de vos utilisateurs.">
+    <meta name="description" content="Sylvain Ornetti, consultant data & IA indépendant. Services data clé en main et ateliers IA pour organisations publiques et privées : un travail de fond sur la donnée, de la mise en qualité à la livraison, au service de vos utilisateurs.">
     <meta name="robots" content="index, follow">
-    <title>Ornetti Data Services — Expert Data & IA · Sylvain Ornetti</title>
+    <title>Ornetti Data Services · Expert Data & IA · Sylvain Ornetti</title>
     <link rel="canonical" href="https://ornettidataservices.com/">
     <link rel="alternate" hreflang="fr" href="https://ornettidataservices.com/">
     <link rel="alternate" hreflang="en" href="https://ornettidataservices.com/en/">
@@ -21,14 +21,14 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="Ornetti Data Services">
     <meta property="og:url" content="https://ornettidataservices.com/">
-    <meta property="og:title" content="Ornetti Data Services — Expert Data & IA · Sylvain Ornetti">
-    <meta property="og:description" content="Services data clé en main et ateliers IA pour organisations publiques et privées — un travail de fond sur la donnée, de la mise en qualité à la livraison, au service de vos utilisateurs.">
+    <meta property="og:title" content="Ornetti Data Services · Expert Data & IA · Sylvain Ornetti">
+    <meta property="og:description" content="Services data clé en main et ateliers IA pour organisations publiques et privées : un travail de fond sur la donnée, de la mise en qualité à la livraison, au service de vos utilisateurs.">
     <meta property="og:image" content="https://ornettidataservices.com/logos/logo_odsp_cercle.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Ornetti Data Services — Expert Data & IA">
-    <meta name="twitter:description" content="Services data clé en main et ateliers IA — un travail de fond sur la donnée, de la mise en qualité à la livraison, au service de vos utilisateurs.">
+    <meta name="twitter:title" content="Ornetti Data Services · Expert Data & IA">
+    <meta name="twitter:description" content="Services data clé en main et ateliers IA : un travail de fond sur la donnée, de la mise en qualité à la livraison, au service de vos utilisateurs.">
     <meta name="twitter:image" content="https://ornettidataservices.com/logos/logo_odsp_cercle.png">
 
     <!-- JSON-LD : Organization + Person -->
@@ -496,10 +496,11 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            max-width: 860px;
+            max-width: 1140px;
             margin: 0 auto;
+            align-items: stretch;
         }
 
         /* Bloc "pain point" en tête de carte service */
@@ -528,7 +529,8 @@
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 20px;
-            padding: 2.5rem;
+            padding: 2.2rem 2rem;
+            text-decoration: none;
             transition: background 0.3s, border-color 0.3s, transform 0.3s;
         }
         .service-card:hover {
@@ -537,7 +539,7 @@
             transform: translateY(-5px);
         }
 
-        /* Carte mise en avant — Ateliers IA */
+        /* Carte mise en avant : Diagnostic IA */
         .service-card.featured {
             position: relative;
             background: linear-gradient(160deg, rgba(212,149,106,0.16), rgba(212,149,106,0.05));
@@ -550,6 +552,8 @@
         }
         @media (min-width: 921px) {
             .service-card.featured:hover { transform: translateY(-8px); }
+            /* Réserve une hauteur identique au pain pour aligner le label "Solution" sur les 3 cartes */
+            .service-pain { min-height: 7.9rem; }
         }
         .service-badge {
             position: absolute;
@@ -569,6 +573,27 @@
             box-shadow: 0 6px 16px rgba(212,149,106,0.35);
         }
         .service-card.featured .service-icon { background: rgba(212,149,106,0.28); }
+
+        /* CTA méthode (carte Diagnostic IA) */
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            padding: 0.7rem 1.4rem;
+            background: var(--peach);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 18px rgba(212,149,106,0.28);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .service-card.featured:hover .service-cta {
+            background: var(--peach-light);
+            transform: translateX(3px);
+        }
 
         .service-icon {
             width: 52px;
@@ -1126,12 +1151,13 @@
         <div class="services-header">
             <p class="section-label services-label">Offre de Services</p>
             <h2 class="section-title services-title">Des services adaptés à vos besoins.</h2>
-            <p class="section-sub services-sub">Deux façons de vous accompagner, pour adresser vos points de douleur.</p>
+            <p class="section-sub services-sub">Trois façons de vous accompagner, pour adresser vos points de douleur.</p>
         </div>
         <div class="services-grid">
+            <!-- Application data clé en main -->
             <div class="service-card reveal" id="service-data">
                 <div class="service-icon">📊</div>
-                <h3 class="service-title">Services data clé en main</h3>
+                <h3 class="service-title">Application data clé en main</h3>
                 <p class="service-pain">
                     Besoin d'offrir des services data à vos parties prenantes, mais des obstacles
                     à lever ? Qualité des données, collecte, mise en forme…
@@ -1139,9 +1165,9 @@
                 <span class="service-solution-label">Solution</span>
                 <p class="service-desc">
                     Je prends en charge l'intégralité de votre projet, de la collecte à la
-                    visualisation : un travail de fond sur la donnée — mise en qualité, chaînes
-                    de traitement, tableaux de bord interactifs — jusqu'à la livraison d'un
-                    service exploitable par vos utilisateurs.
+                    visualisation : un travail de fond sur la donnée (mise en qualité, chaînes
+                    de traitement, tableaux de bord interactifs) jusqu'à la livraison d'une
+                    application exploitable par vos utilisateurs.
                 </p>
                 <div class="service-tags">
                     <span class="tag">Mise en qualité</span>
@@ -1149,8 +1175,35 @@
                     <span class="tag">Tableaux de bord</span>
                 </div>
             </div>
-            <div class="service-card featured reveal reveal-delay-1" id="service-ateliers-ia">
-                <div class="service-icon">🤖</div>
+            <!-- Diagnostic IA : carte en surbrillance, cliquable vers la méthode -->
+            <a href="diagnostic-ia.html" class="service-card featured reveal reveal-delay-1" id="service-diagnostic-ia">
+                <div class="service-icon">📖</div>
+                <h3 class="service-title">Diagnostic IA</h3>
+                <p class="service-pain">
+                    Convaincu que l'IA va optimiser l'activité de votre entreprise, mais vous voulez
+                    l'appréhender concrètement et savoir quels chantiers prioriser&nbsp;?
+                </p>
+                <span class="service-solution-label">Solution</span>
+                <p class="service-desc">
+                    Un accompagnement sur le terrain, de 4 à 8 semaines, pour éprouver concrètement
+                    l'IA et identifier les assets que vous avez en interne (données, cas d'usage,
+                    ressources) et lancer des chantiers à valeur ajoutée.
+                </p>
+                <div class="service-tags">
+                    <span class="tag">Atelier top management</span>
+                    <span class="tag">Audit data &amp; usages</span>
+                    <span class="tag">Feuille de route</span>
+                </div>
+                <span class="service-cta">
+                    Découvrir la méthode
+                    <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                        <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </a>
+            <!-- Ateliers IA -->
+            <div class="service-card reveal reveal-delay-2" id="service-ateliers-ia">
+                <div class="service-icon">🤝</div>
                 <h3 class="service-title">Ateliers IA</h3>
                 <p class="service-pain">
                     Besoin de délivrer des cas d'usage IA, mais un manque de clarté ou de
@@ -1194,9 +1247,9 @@
                 <span class="client-logo-fallback" style="display:none">Ministère de<br>l'Éducation Nationale</span>
                 <p class="client-name">Ministère de l'Éducation Nationale</p>
             </div>
-            <!-- Dust — Partenaire Officiel -->
+            <!-- Dust : Partenaire Officiel -->
             <div class="client-logo-card">
-                <img src="logos/dust-ai-logo.jpg" alt="Dust — Partenaire Officiel"
+                <img src="logos/dust-ai-logo.jpg" alt="Dust, Partenaire Officiel"
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Dust</span>
                 <p class="client-name">Partenaire Officiel Dust</p>
@@ -1242,6 +1295,13 @@
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">Datactivist</span>
                 <p class="client-name">Datactivist</p>
+            </div>
+            <!-- SARL Thibaudeau -->
+            <div class="client-logo-card">
+                <img src="logos/logo_sarl%20thibadeau.png" alt="SARL Thibaudeau"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                <span class="client-logo-fallback" style="display:none">SARL<br>Thibaudeau</span>
+                <p class="client-name">SARL Thibaudeau</p>
             </div>
         </div>
     </div>
@@ -1372,7 +1432,7 @@
 </section>
 
 <!-- ═══ LINKEDIN ═══ -->
-<!-- TEMPORAIREMENT MASQUÉ (à réintégrer ~octobre 2026) — décommenter le bloc ci-dessous pour la remettre en ligne.
+<!-- TEMPORAIREMENT MASQUÉ (à réintégrer ~octobre 2026) : décommenter le bloc ci-dessous pour la remettre en ligne.
 <section id="linkedin">
     <div class="section-inner">
         <div class="linkedin-header reveal">
@@ -1444,7 +1504,7 @@
         </div>
         <div class="techno-cert reveal reveal-delay-2">
             <a href="logos/certification-huwise.pdf" target="_blank" rel="noopener" class="cert-thumb">
-                <img src="logos/certification-huwise.png" alt="Certification Huwise — Sylvain Ornetti, Partenaire certifié">
+                <img src="logos/certification-huwise.png" alt="Certification Huwise, Sylvain Ornetti, Partenaire certifié">
             </a>
             <div class="cert-body">
                 <span class="cert-badge">Certification</span>

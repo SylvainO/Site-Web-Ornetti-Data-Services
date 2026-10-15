@@ -195,8 +195,7 @@
         /* ─── HERO ─── */
         #hero {
             position: relative;
-            min-height: 100vh;
-            padding: 7rem 0 3rem;
+            padding: 5.75rem 0 1.5rem;
             background: var(--navy-dark);
             display: flex;
             align-items: center;
@@ -232,16 +231,16 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.25rem;
         }
 
         .hero-title {
             font-family: 'DM Serif Display', serif;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            line-height: 1.08;
+            font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+            line-height: 1.14;
             color: var(--white);
-            margin-bottom: 1.5rem;
-            max-width: 760px;
+            margin-bottom: 1rem;
+            max-width: 880px;
         }
 
         .hero-title em {
@@ -250,11 +249,11 @@
         }
 
         .hero-subtitle {
-            font-size: 1.05rem;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 2.75rem;
-            max-width: 600px;
-            line-height: 1.75;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.72);
+            margin-bottom: 1.9rem;
+            max-width: 650px;
+            line-height: 1.7;
         }
 
         .hero-actions {
@@ -353,17 +352,20 @@
         }
 
         /* ─── ABOUT ─── */
-        #about { background: var(--white); }
+        #about { background: var(--white); padding-top: 3.25rem; }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            grid-template-columns: 1.7fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-label { color: var(--peach); }
-        .about-title { color: var(--navy); }
+        .about-title {
+            color: var(--navy);
+            font-size: clamp(1.65rem, 2.5vw, 2.1rem);
+        }
 
         .about-text {
             color: var(--text-medium);
@@ -636,6 +638,104 @@
             background: rgba(212,149,106,0.1);
             color: var(--peach-light);
             border: 1px solid rgba(212,149,106,0.18);
+        }
+
+        /* Réalisations : cartouches (chips) en bas de carte service */
+        .service-refs {
+            margin-top: auto;
+            padding-top: 1.75rem;
+        }
+        .service-refs-label {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 0.8rem;
+        }
+        .service-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+        .service-chip {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.42rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.82);
+            transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        /* chip cliquable (lien externe) */
+        a.service-chip {
+            background: rgba(212,149,106,0.1);
+            border-color: rgba(212,149,106,0.28);
+            color: var(--peach-light);
+        }
+        a.service-chip:hover {
+            background: rgba(212,149,106,0.22);
+            border-color: rgba(212,149,106,0.55);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .service-chip svg {
+            flex-shrink: 0;
+            opacity: 0.65;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        a.service-chip:hover svg { transform: translate(1px,-1px); opacity: 1; }
+
+        /* Infobulle pour les libellés longs */
+        .service-chip[data-tip]::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: calc(100% + 9px);
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            width: max-content;
+            max-width: 220px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            background: var(--navy);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.38);
+            color: #fff;
+            font-size: 0.74rem;
+            font-weight: 500;
+            line-height: 1.4;
+            text-align: center;
+            white-space: normal;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 6;
+        }
+        .service-chip[data-tip]::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 3px);
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            border: 6px solid transparent;
+            border-top-color: var(--navy);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 6;
+        }
+        .service-chip[data-tip]:hover::after,
+        .service-chip[data-tip]:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         /* ─── CLIENTS ─── */
@@ -1067,15 +1167,14 @@
             <span>✦</span> Expertise IA &amp; Data
         </span>
         <h1 class="hero-title">
-            L'IA et la donnée,<br>
-            au service de ce qui compte<br>
-            vraiment : <em>vos utilisateurs.</em>
+            Des données à fort potentiel,<br>
+            mais <em>peu exploitées</em> pour vos<br>
+            utilisateurs, clients ou partenaires&nbsp;?
         </h1>
         <p class="hero-subtitle">
-            Des données à potentiel, mais peu exploitées ou exploitables, pour vos
-            utilisateurs, clients ou partenaires ? Je vous aide à livrer des services data
-            clés en main grâce à un travail de fond sur la donnée : de la mise en qualité,
-            à la conception jusqu'à la livraison.
+            Je vous aide à livrer des services data clés en main grâce à un travail
+            de fond sur la donnée et l'IA : de la mise en qualité à la conception,
+            jusqu'à la livraison.
         </p>
         <div class="hero-actions">
             <a href="#portfolio" class="btn-primary">
@@ -1087,9 +1186,6 @@
             <a href="#contact" class="btn-secondary">Discutons de votre projet</a>
         </div>
     </div>
-    <div class="scroll-indicator">
-        <div class="scroll-line"></div>
-    </div>
 </section>
 
 <!-- ═══ ABOUT ═══ -->
@@ -1098,7 +1194,7 @@
         <div class="about-grid">
             <div>
                 <p class="section-label about-label">À propos</p>
-                <h2 class="section-title about-title">Expert Data &amp; IA,<br>ancré dans le réel.</h2>
+                <h2 class="section-title about-title">Expert Data &amp; IA, ancré dans le réel.</h2>
                 <p class="about-text">
                     Je livre des projets Data &amp; IA pour des organisations publiques et privées :
                     de l'identification du cas d'usage jusqu'à la mise en production,
@@ -1107,6 +1203,11 @@
                 <p class="about-text">
                     Les mains dans les données, sur le terrain : pipelines, dashboards,
                     automatisations IA. Des solutions adaptées à vos enjeux réels.
+                </p>
+                <p class="about-text">
+                    Ancien directeur clients et solutions chez Huwise (ex-Opendatasoft),
+                    j'ai accompagné de nombreux projets de valorisation de la donnée : je
+                    connais le terrain et vos besoins.
                 </p>
                 <div class="about-stats">
                     <div>
@@ -1169,10 +1270,22 @@
                     de traitement, tableaux de bord interactifs) jusqu'à la livraison d'une
                     application exploitable par vos utilisateurs.
                 </p>
-                <div class="service-tags">
-                    <span class="tag">Mise en qualité</span>
-                    <span class="tag">Collecte &amp; traitement</span>
-                    <span class="tag">Tableaux de bord</span>
+                <div class="service-refs">
+                    <span class="service-refs-label">Réalisations</span>
+                    <div class="service-chips">
+                        <a href="https://observatoire.commandepublique-grandest.fr/pages/accueil/" target="_blank" rel="noopener" class="service-chip" data-tip="Observatoire de la commande publique — Grand Est">
+                            Grand Est
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://data.education.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="service-chip" data-tip="Portail open data — Éducation nationale">
+                            Éducation nationale
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://equipements.sports.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="service-chip" data-tip="Recensement des équipements sportifs — Ministère des Sports">
+                            Ministère des Sports
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Diagnostic IA : carte en surbrillance, cliquable vers la méthode -->
@@ -1189,10 +1302,11 @@
                     l'IA et identifier les assets que vous avez en interne (données, cas d'usage,
                     ressources) et lancer des chantiers à valeur ajoutée.
                 </p>
-                <div class="service-tags">
-                    <span class="tag">Atelier top management</span>
-                    <span class="tag">Audit data &amp; usages</span>
-                    <span class="tag">Feuille de route</span>
+                <div class="service-refs">
+                    <span class="service-refs-label">Réalisations</span>
+                    <div class="service-chips">
+                        <span class="service-chip">Luzeronde</span>
+                    </div>
                 </div>
                 <span class="service-cta">
                     Découvrir la méthode
@@ -1215,10 +1329,18 @@
                     priorisation des idées à plus fort impact jusqu'à leur mise en œuvre concrète,
                     avec une appropriation durable par vos équipes.
                 </p>
-                <div class="service-tags">
-                    <span class="tag">Cas d'usage IA</span>
-                    <span class="tag">Définition</span>
-                    <span class="tag">Implémentation</span>
+                <div class="service-refs">
+                    <span class="service-refs-label">Réalisations</span>
+                    <div class="service-chips">
+                        <a href="https://www.huwise.com/" target="_blank" rel="noopener" class="service-chip">
+                            Huwise
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506622842218938369/" target="_blank" rel="noopener" class="service-chip">
+                            CSM Network
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

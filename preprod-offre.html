@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Preprod — Offre de Services (schématique)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy:        #1B2A6B;
+            --navy-dark:   #101A50;
+            --navy-light:  #2d3f8a;
+            --peach:       #D4956A;
+            --peach-light: #E8B48A;
+            --peach-pale:  #F5EBE0;
+            --white:       #FFFFFF;
+            --gray-light:  #F7F7F8;
+            --text-dark:   #1B2A6B;
+            --text-medium: #4A5568;
+            --text-light:  #718096;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Bandeau preprod ─── */
+        .preprod-bar {
+            background: #111;
+            color: #fff;
+            font-size: .82rem;
+            letter-spacing: .02em;
+            padding: .7rem 1.5rem;
+            text-align: center;
+        }
+        .preprod-bar strong { color: var(--peach-light); }
+
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .variant-tag {
+            display: inline-flex; align-items: center; gap: .55rem;
+            font-size: .72rem; font-weight: 600; letter-spacing: .16em;
+            text-transform: uppercase;
+            padding: .4rem .85rem; border-radius: 100px;
+        }
+        .variant-tag .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+        .section-label {
+            font-size: .78rem; font-weight: 600; letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400; line-height: 1.12;
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+            margin: .7rem 0 .5rem;
+        }
+        .section-sub { font-size: 1.02rem; max-width: 46rem; }
+
+        /* ════════════════════════════════════════════════
+           VARIANTE A — SCHÉMA DE PARCOURS (fond marine)
+           ════════════════════════════════════════════════ */
+        .vA {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 5rem 0 5.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        /* trame "blueprint" discrète */
+        .vA::before {
+            content: ""; position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 55%, transparent 100%);
+            pointer-events: none;
+        }
+        .vA .wrap { position: relative; z-index: 1; }
+        .vA .variant-tag { background: rgba(212,149,106,.16); color: var(--peach-light); }
+        .vA .variant-tag .dot { background: var(--peach); }
+        .vA .section-label { color: var(--peach); margin-top: 1.4rem; }
+        .vA .section-sub { color: rgba(255,255,255,.72); }
+
+        .flow {
+            margin-top: 2.8rem;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255,255,255,.015);
+        }
+        /* en-tête des 3 colonnes */
+        .flow-head {
+            display: grid;
+            grid-template-columns: 1.1fr 56px 1.35fr 56px 1.1fr;
+            align-items: center;
+            padding: 1rem 1.6rem .9rem;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+        .flow-head span {
+            font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+            text-transform: uppercase; color: rgba(255,255,255,.5);
+        }
+        .flow-head .col-mid { color: var(--peach); }
+        .flow-head .spacer { font-size: 0; }
+
+        .flow-row {
+            display: grid;
+            grid-template-columns: 1.1fr 56px 1.35fr 56px 1.1fr;
+            align-items: center;
+            padding: 1.5rem 1.6rem;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            transition: background .25s;
+        }
+        .flow-row:last-child { border-bottom: none; }
+        .flow-row:hover { background: rgba(255,255,255,.03); }
+        .flow-row.is-featured { background: rgba(212,149,106,.07); }
+        .flow-row.is-featured:hover { background: rgba(212,149,106,.11); }
+
+        /* colonne gauche : situation / pain */
+        .cell-pain {
+            font-family: 'DM Serif Display', serif; font-style: italic;
+            font-size: 1.12rem; line-height: 1.35; color: rgba(255,255,255,.9);
+        }
+
+        /* flèche */
+        .cell-arrow { display: flex; justify-content: center; color: var(--peach); opacity: .7; }
+
+        /* colonne centre : intervention */
+        .cell-inter { text-align: center; }
+        .inter-icon {
+            width: 52px; height: 52px; margin: 0 auto .7rem;
+            display: flex; align-items: center; justify-content: center;
+            border: 1.5px solid var(--peach); border-radius: 14px;
+            color: var(--peach);
+        }
+        .inter-icon svg { width: 28px; height: 28px; }
+        .inter-title {
+            font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em;
+            margin-bottom: .55rem;
+        }
+        .inter-meta {
+            display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center;
+        }
+        .meta-chip {
+            font-size: .74rem; font-weight: 500;
+            padding: .25rem .6rem; border-radius: 100px;
+            background: rgba(255,255,255,.08); color: rgba(255,255,255,.82);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+
+        /* colonne droite : livrable + réfs */
+        .cell-out .out-livrable {
+            font-size: .98rem; font-weight: 500; color: #fff; line-height: 1.4;
+            display: flex; gap: .5rem;
+        }
+        .cell-out .out-livrable svg { flex: none; margin-top: .25rem; color: var(--peach); }
+        .out-refs {
+            margin-top: .7rem;
+            display: flex; flex-wrap: wrap; gap: .35rem;
+        }
+        .out-refs .ref {
+            font-size: .72rem; color: rgba(255,255,255,.6);
+            padding: .2rem .5rem; border-radius: 6px;
+            background: rgba(255,255,255,.05);
+            text-decoration: none; transition: color .2s;
+        }
+        .out-refs .ref:hover { color: var(--peach-light); }
+        .featured-flag {
+            display: inline-block; margin-top: .75rem;
+            font-size: .76rem; font-weight: 600; color: var(--peach);
+            text-decoration: none;
+        }
+        .featured-flag:hover { color: var(--peach-light); }
+
+        /* ════════════════════════════════════════════════
+           VARIANTE B — FICHES SYNTHÉTIQUES (fond clair)
+           ════════════════════════════════════════════════ */
+        .vB { background: var(--peach-pale); padding: 5rem 0 5.5rem; }
+        .vB .variant-tag { background: rgba(27,42,107,.1); color: var(--navy); }
+        .vB .variant-tag .dot { background: var(--peach); }
+        .vB .section-label { color: var(--peach); margin-top: 1.4rem; }
+        .vB .section-title { color: var(--navy); }
+        .vB .section-sub { color: var(--text-medium); }
+
+        .cards {
+            margin-top: 2.8rem;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem;
+        }
+        .card {
+            background: #fff; border-radius: 18px; padding: 2rem 1.7rem;
+            border: 1px solid rgba(27,42,107,.07);
+            box-shadow: 0 2px 20px rgba(27,42,107,.04);
+            display: flex; flex-direction: column;
+            transition: transform .25s, box-shadow .25s;
+            text-decoration: none; color: inherit;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(27,42,107,.1); }
+        .card.card-featured {
+            border-color: var(--peach);
+            box-shadow: 0 2px 20px rgba(212,149,106,.18);
+        }
+        .card-icon {
+            width: 56px; height: 56px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--navy-dark); color: var(--peach);
+            margin-bottom: 1.3rem;
+        }
+        .card-featured .card-icon { background: var(--peach); color: #fff; }
+        .card-icon svg { width: 30px; height: 30px; }
+        .card h3 {
+            font-size: 1.22rem; font-weight: 700; color: var(--navy);
+            letter-spacing: -.01em; margin-bottom: .6rem;
+        }
+        .card-pain {
+            font-family: 'DM Serif Display', serif; font-style: italic;
+            font-size: 1.02rem; color: var(--text-medium); line-height: 1.35;
+            margin-bottom: 1.3rem;
+        }
+        .card-keys { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.3rem; }
+        .card-keys .k {
+            font-size: .76rem; font-weight: 600; color: var(--navy);
+            padding: .3rem .65rem; border-radius: 100px;
+            background: var(--peach-pale);
+        }
+        .card-out {
+            display: flex; gap: .55rem; padding-top: 1.1rem;
+            border-top: 1px dashed rgba(27,42,107,.14);
+            font-size: .92rem; font-weight: 500; color: var(--navy); line-height: 1.4;
+            margin-top: auto;
+        }
+        .card-out svg { flex: none; margin-top: .2rem; color: var(--peach); }
+        .card-refs { margin-top: .95rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+        .card-refs .ref {
+            font-size: .72rem; color: var(--text-light);
+            padding: .2rem .5rem; border-radius: 6px; background: var(--gray-light);
+            text-decoration: none; transition: color .2s;
+        }
+        .card-refs .ref:hover { color: var(--peach); }
+        .card-link {
+            margin-top: 1rem; font-size: .82rem; font-weight: 600; color: var(--peach);
+            display: inline-flex; align-items: center; gap: .4rem;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 880px) {
+            .flow-head { display: none; }
+            .flow-row {
+                grid-template-columns: 1fr;
+                gap: 1rem; padding: 1.6rem 1.3rem;
+            }
+            .cell-arrow { transform: rotate(90deg); opacity: .5; }
+            .cell-pain, .cell-inter, .cell-out { text-align: left; }
+            .inter-icon { margin: 0 0 .6rem; }
+            .inter-meta { justify-content: flex-start; }
+            .cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preprod-bar">
+        🔒 <strong>Preprod</strong> — Offre de Services, version schématique · 2 directions à comparer (non indexée)
+    </div>
+
+    <!-- ═══════════ VARIANTE A ═══════════ -->
+    <section class="vA">
+        <div class="wrap">
+            <span class="variant-tag"><span class="dot"></span>Variante A · Schéma de parcours</span>
+            <p class="section-label">Offre de Services</p>
+            <h2 class="section-title">Trois leviers, un même principe : du terrain, pas des promesses.</h2>
+            <p class="section-sub">Où vous en êtes, ce que je fais, ce que vous récupérez. Lu de gauche à droite.</p>
+
+            <div class="flow">
+                <div class="flow-head">
+                    <span>Vous êtes ici</span>
+                    <span class="spacer">·</span>
+                    <span class="col-mid">Mon intervention</span>
+                    <span class="spacer">·</span>
+                    <span style="text-align:right">Vous repartez avec</span>
+                </div>
+
+                <!-- Diagnostic IA -->
+                <div class="flow-row is-featured">
+                    <p class="cell-pain">« L'IA va compter pour nous — mais par où commencer&nbsp;? »</p>
+                    <div class="cell-arrow">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cell-inter">
+                        <div class="inter-icon">
+                            <!-- boussole -->
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="inter-title">Diagnostic IA</div>
+                        <div class="inter-meta">
+                            <span class="meta-chip">Terrain</span>
+                            <span class="meta-chip">4–8 semaines</span>
+                            <span class="meta-chip">Priorisation</span>
+                        </div>
+                    </div>
+                    <div class="cell-arrow">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cell-out">
+                        <p class="out-livrable">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Une feuille de route des chantiers à vraie valeur ajoutée.
+                        </p>
+                        <div class="out-refs"><span class="ref">Luzeronde</span></div>
+                        <a href="diagnostic-ia.html" class="featured-flag">Découvrir la méthode →</a>
+                    </div>
+                </div>
+
+                <!-- Ateliers IA -->
+                <div class="flow-row">
+                    <p class="cell-pain">« On a des idées d'IA — mais ça ne passe pas à l'action. »</p>
+                    <div class="cell-arrow">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cell-inter">
+                        <div class="inter-icon">
+                            <!-- atelier / échange -->
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 20c0-2.8 2.2-5 5-5M21 20c0-2.8-2.2-5-5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="inter-title">Ateliers IA</div>
+                        <div class="inter-meta">
+                            <span class="meta-chip">Atelier</span>
+                            <span class="meta-chip">Priorisation</span>
+                            <span class="meta-chip">Mise en œuvre</span>
+                        </div>
+                    </div>
+                    <div class="cell-arrow">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cell-out">
+                        <p class="out-livrable">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Des cas d'usage implémentés, appropriés par vos équipes.
+                        </p>
+                        <div class="out-refs">
+                            <a href="https://www.huwise.com/" target="_blank" rel="noopener" class="ref">Huwise ↗</a>
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506622842218938369/" target="_blank" rel="noopener" class="ref">CSM Network ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application data clé en main -->
+                <div class="flow-row">
+                    <p class="cell-pain">« Des données à valoriser — mais des obstacles à lever. »</p>
+                    <div class="cell-arrow">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cell-inter">
+                        <div class="inter-icon">
+                            <!-- pipeline : couches -> graphe -->
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M3 20V11M9 20V7M15 20v-6M21 20V4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                        </div>
+                        <div class="inter-title">Application data clé en main</div>
+                        <div class="inter-meta">
+                            <span class="meta-chip">Collecte</span>
+                            <span class="meta-chip">Qualité</span>
+                            <span class="meta-chip">Visualisation</span>
+                        </div>
+                    </div>
+                    <div class="cell-arrow">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="cell-out">
+                        <p class="out-livrable">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Une application data exploitable par vos utilisateurs.
+                        </p>
+                        <div class="out-refs">
+                            <a href="https://observatoire.commandepublique-grandest.fr/pages/accueil/" target="_blank" rel="noopener" class="ref">Grand Est ↗</a>
+                            <a href="https://data.education.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="ref">Éducation nationale ↗</a>
+                            <a href="https://equipements.sports.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="ref">Ministère des Sports ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ VARIANTE B ═══════════ -->
+    <section class="vB">
+        <div class="wrap">
+            <span class="variant-tag"><span class="dot"></span>Variante B · Fiches synthétiques</span>
+            <p class="section-label">Offre de Services</p>
+            <h2 class="section-title">Des services adaptés à votre maturité data.</h2>
+            <p class="section-sub">Une icône, une tension, le livrable. L'essentiel en un coup d'œil.</p>
+
+            <div class="cards">
+                <!-- Diagnostic IA -->
+                <a href="diagnostic-ia.html" class="card card-featured">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3>Diagnostic IA</h3>
+                    <p class="card-pain">« L'IA va compter — mais par où commencer&nbsp;? »</p>
+                    <div class="card-keys">
+                        <span class="k">Terrain</span><span class="k">4–8 sem.</span><span class="k">Priorisation</span>
+                    </div>
+                    <div class="card-out">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Une feuille de route des chantiers à valeur ajoutée.
+                    </div>
+                    <div class="card-refs"><span class="ref">Luzeronde</span></div>
+                    <span class="card-link">Découvrir la méthode →</span>
+                </a>
+
+                <!-- Ateliers IA -->
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3 20c0-2.8 2.2-5 5-5M21 20c0-2.8-2.2-5-5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Ateliers IA</h3>
+                    <p class="card-pain">« Des idées d'IA — mais pas de passage à l'action. »</p>
+                    <div class="card-keys">
+                        <span class="k">Atelier</span><span class="k">Priorisation</span><span class="k">Mise en œuvre</span>
+                    </div>
+                    <div class="card-out">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Des cas d'usage implémentés et appropriés par vos équipes.
+                    </div>
+                    <div class="card-refs">
+                        <a href="https://www.huwise.com/" target="_blank" rel="noopener" class="ref">Huwise ↗</a>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506622842218938369/" target="_blank" rel="noopener" class="ref">CSM Network ↗</a>
+                    </div>
+                </div>
+
+                <!-- Application data -->
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M3 20V11M9 20V7M15 20v-6M21 20V4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3>Application data clé en main</h3>
+                    <p class="card-pain">« Des données à valoriser — mais des obstacles à lever. »</p>
+                    <div class="card-keys">
+                        <span class="k">Collecte</span><span class="k">Qualité</span><span class="k">Visualisation</span>
+                    </div>
+                    <div class="card-out">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Une application data exploitable par vos utilisateurs.
+                    </div>
+                    <div class="card-refs">
+                        <a href="https://observatoire.commandepublique-grandest.fr/pages/accueil/" target="_blank" rel="noopener" class="ref">Grand Est ↗</a>
+                        <a href="https://data.education.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="ref">Éducation nat. ↗</a>
+                        <a href="https://equipements.sports.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="ref">Min. Sports ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

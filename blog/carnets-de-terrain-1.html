@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ce que j'entends dans les collectivités, les administrations et les PME sur la façon dont l'IA s'installe concrètement.">
+    <meta name="robots" content="index, follow">
+    <title>Ce que l'IA change dans les organisations · Ornetti Data Services</title>
+    <link rel="canonical" href="https://ornettidataservices.com/blog/carnets-de-terrain-1.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../logos/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Ornetti Data Services">
+    <meta property="og:url" content="https://ornettidataservices.com/blog/carnets-de-terrain-1.html">
+    <meta property="og:title" content="Ce que l'IA change dans les organisations">
+    <meta property="og:description" content="Ce que j'entends dans les collectivités, les administrations et les PME sur la façon dont l'IA s'installe concrètement.">
+    <meta property="og:image" content="https://ornettidataservices.com/blog/images/carnets-terrain.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:        #1B2A6B;
+            --navy-dark:   #101A50;
+            --navy-light:  #2d3f8a;
+            --peach:       #D4956A;
+            --peach-light: #E8B48A;
+            --peach-pale:  #F5EBE0;
+            --white:       #FFFFFF;
+            --gray-light:  #F7F7F8;
+            --text-dark:   #1B2A6B;
+            --text-medium: #4A5568;
+            --text-light:  #718096;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 1px 24px rgba(27,42,107,0.08);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-logo { width: 38px; height: 38px; object-fit: contain; }
+        .nav-name { font-weight: 700; font-size: 0.95rem; color: var(--navy); }
+        .nav-back {
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--navy); }
+
+        /* ─── HERO ─── */
+        .art-hero {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 8.5rem 1.5rem 4.5rem;
+            text-align: center;
+        }
+        .art-hero-inner { max-width: 760px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.9rem;
+        }
+        .art-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+            line-height: 1.12;
+            margin-bottom: 1.1rem;
+        }
+        .art-chapo {
+            font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+            font-weight: 400;
+            color: var(--peach-light);
+            line-height: 1.55;
+        }
+
+        /* ─── CORPS DE L'ARTICLE ─── */
+        .art-body { padding: 0 1.5rem 4rem; }
+        .art-col { max-width: 720px; margin: 0 auto; }
+
+        /* Bandeau image, chevauchant le hero */
+        .art-figure {
+            max-width: 820px;
+            margin: -3rem auto 2.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 18px 48px rgba(27,42,107,0.18);
+        }
+        .art-figure img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+
+        /* Bloc "La démarche" — lead éditorial, filet fin */
+        .intro-block {
+            border-left: 2px solid rgba(27,42,107,0.12);
+            padding: 0.1rem 0 0.1rem 1.4rem;
+            margin-bottom: 2.9rem;
+        }
+        .intro-block .field-label {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.55rem;
+        }
+        .intro-block p { color: var(--text-medium); font-size: 1.12rem; line-height: 1.7; }
+
+        /* Sommaire */
+        .toc { margin-bottom: 3rem; }
+        .toc-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.9rem;
+        }
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-top: 1px solid rgba(27,42,107,0.08);
+        }
+        .toc-list a {
+            display: flex;
+            align-items: baseline;
+            gap: 0.85rem;
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.8rem 0.2rem;
+            border-bottom: 1px solid rgba(27,42,107,0.08);
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .toc-list a:hover { color: var(--peach); padding-left: 0.5rem; }
+        .toc-num { color: var(--peach); font-weight: 700; flex-shrink: 0; }
+
+        /* Sections */
+        .art-section { margin-bottom: 2.8rem; scroll-margin-top: 6rem; }
+        .art-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.45rem, 3vw, 1.95rem);
+            color: var(--navy);
+            line-height: 1.22;
+            margin-bottom: 0.9rem;
+            display: flex;
+            gap: 0.7rem;
+        }
+        .art-section h2 .h2-num { color: var(--peach); }
+        .art-section p { color: var(--text-medium); font-size: 1.02rem; margin-bottom: 1rem; }
+        .art-section ul.plain {
+            list-style: none;
+            margin: 0 0 1rem;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .art-section ul.plain li {
+            position: relative;
+            padding-left: 1.3rem;
+            color: var(--text-medium);
+            font-size: 1.02rem;
+        }
+        .art-section ul.plain li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.68rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--peach);
+        }
+
+        /* "À retenir" — note éditoriale, filet fin */
+        .takeaway {
+            margin-top: 1.2rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(27,42,107,0.1);
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .takeaway strong { color: var(--peach); font-weight: 700; }
+
+        /* "De mon côté" — section sobre, filet fin */
+        .mine {
+            padding-top: 1.7rem;
+            border-top: 1px solid rgba(27,42,107,0.1);
+            margin-bottom: 3rem;
+            scroll-margin-top: 6rem;
+        }
+        .mine h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.45rem, 3vw, 1.95rem);
+            color: var(--navy);
+            margin-bottom: 1.1rem;
+        }
+        .mine ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .mine li {
+            position: relative;
+            padding-left: 1.4rem;
+            color: var(--text-medium);
+            font-size: 1.02rem;
+        }
+        .mine li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.68rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--peach);
+        }
+        .mine p { color: var(--text-medium); font-size: 1.02rem; }
+
+        /* Fin / CTA */
+        .art-end { text-align: center; max-width: 620px; margin: 0 auto; }
+        .art-end p {
+            font-size: 1.1rem;
+            color: var(--navy);
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.9rem;
+            background: var(--peach);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 10px 28px rgba(212,149,106,0.4);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: var(--peach-light); transform: translateY(-2px); }
+
+        .footer-copy {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            background: var(--navy-dark);
+        }
+
+        @media (max-width: 760px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-name { display: none; }
+            .art-hero { padding: 7.5rem 1.2rem 4rem; }
+            .art-figure { margin: -2rem auto 2rem; border-radius: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+    <a href="../index.html" class="nav-brand">
+        <img src="../logos/logo_odsp_cercle.png" alt="Ornetti Data Services" class="nav-logo">
+        <span class="nav-name">Ornetti Data Services</span>
+    </a>
+    <a href="index.html" class="nav-back">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M12.5 7.5h-10M6 3.5l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Retour au blog
+    </a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="art-hero">
+    <div class="art-hero-inner">
+        <p class="section-label">Carnets de terrain #1</p>
+        <h1 class="art-title">Ce que l'IA change dans les organisations</h1>
+        <p class="art-chapo">Réflexions de terrain, au fil d'interviews de responsables data et IA, pour comprendre les mouvements que l'IA enclenche dans les organisations.</p>
+    </div>
+</section>
+
+<!-- ═══ CORPS ═══ -->
+<div class="art-body">
+
+    <figure class="art-figure">
+        <img src="images/carnets-terrain.jpg" alt="Deux personnes en échange autour d'une table, l'une prenant des notes">
+    </figure>
+
+    <div class="art-col">
+
+        <!-- La démarche -->
+        <div class="intro-block">
+            <span class="field-label">La démarche</span>
+            <p>Depuis la rentrée, je rencontre des responsables data et IA de collectivités territoriales, d'administrations et de PME. Je leur pose une question simple&nbsp;: comment l'IA s'installe-t-elle concrètement chez vous&nbsp;? Voici ce que j'en retiens.</p>
+        </div>
+
+        <!-- Sommaire -->
+        <div class="toc" role="navigation" aria-label="Sommaire">
+            <p class="toc-label">Au sommaire</p>
+            <ul class="toc-list">
+                <li><a href="#confidentialite"><span class="toc-num">1</span> La confidentialité se règle avant les usages</a></li>
+                <li><a href="#logiciels"><span class="toc-num">2</span> L'IA arrive aussi par les logiciels déjà en place</a></li>
+                <li><a href="#cas-modestes"><span class="toc-num">3</span> La valeur est dans les cas d'usage modestes</a></li>
+                <li><a href="#metiers"><span class="toc-num">4</span> Les métiers changent avant les effectifs</a></li>
+                <li><a href="#mes-usages"><span class="toc-num">→</span> De mon côté</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1 -->
+        <section class="art-section" id="confidentialite">
+            <h2><span class="h2-num">1.</span> La confidentialité se règle avant les usages</h2>
+            <p>Chaque organisation a commencé par là, et chacune a trouvé sa réponse&nbsp;: une plateforme sur ses propres serveurs, un LLM interne validé par les élus, un assistant bureautique sous le contrôle du RSSI. Une PME a choisi l'offre entreprise d'un grand éditeur, pour ses garanties contractuelles, et l'a encadrée par une charte d'usage.</p>
+            <div class="takeaway"><strong>À retenir&nbsp;:</strong> il n'y a pas de bonne réponse unique, mais il en faut une claire avant de déployer.</div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="art-section" id="logiciels">
+            <h2><span class="h2-num">2.</span> L'IA arrive aussi par les logiciels déjà en place</h2>
+            <p>Sans équipe data, une PME voit surtout l'IA arriver par ses éditeurs&nbsp;: une mise à jour, et une nouvelle fonction IA apparaît dans un outil du quotidien. Les grandes organisations le vivent aussi, au point de faire valider chaque nouvelle fonction par leur RSSI.</p>
+            <div class="takeaway"><strong>À retenir&nbsp;:</strong> le cadre se pose une fois, pour les outils choisis comme pour ceux qui s'enrichissent tout seuls.</div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="art-section" id="cas-modestes">
+            <h2><span class="h2-num">3.</span> La valeur est dans les cas d'usage modestes</h2>
+            <ul class="plain">
+                <li>Mettre au format un tableau de garanties.</li>
+                <li>Préparer les entretiens annuels.</li>
+                <li>Transformer des signalements reçus par messagerie en données structurées.</li>
+            </ul>
+            <p>Dans la PME rencontrée, ces usages sont apparus en six mois à peine.</p>
+            <div class="takeaway"><strong>À retenir&nbsp;:</strong> les gains les plus nets partent d'une donnée ou d'une tâche qui existe déjà.</div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="art-section" id="metiers">
+            <h2><span class="h2-num">4.</span> Les métiers changent avant les effectifs</h2>
+            <p>Pas de baisse d'effectifs observée, mais des postes qui ont beaucoup évolué. Les salariés font davantage seuls et sollicitent moins les experts internes. Une collectivité forme ses équipes avec une Fresque de la Data et une formule simple&nbsp;: «&nbsp;utiliser pour comprendre et utiliser pour faire&nbsp;».</p>
+            <div class="takeaway"><strong>À retenir&nbsp;:</strong> l'impact se voit d'abord dans le contenu des postes.</div>
+        </section>
+
+        <!-- De mon côté -->
+        <section class="mine" id="mes-usages">
+            <h2>De mon côté</h2>
+            <p>Comme indépendant, les impacts sur ma façon de travailler sont nombreux. Et sur les usages comme sur les non-usages, tout reste largement en chantier&nbsp;: j'avance, j'essaie, et je corrige en chemin.</p>
+        </section>
+
+        <!-- Fin -->
+        <div class="art-end">
+            <p>Ces carnets reviendront à chaque numéro. Si vous voulez partager votre expérience pour le prochain, écrivez-moi.</p>
+            <a href="../index.html#contact" class="btn-primary">
+                M'écrire
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                    <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<p class="footer-copy">© 2026 Ornetti Data Services · ornettidataservices.com</p>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Le blog d'Ornetti Data Services : retours de terrain et veille sur la data et l'IA, par Sylvain Ornetti.">
+    <meta name="robots" content="index, follow">
+    <title>Blog · Ornetti Data Services</title>
+    <link rel="canonical" href="https://ornettidataservices.com/blog/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../logos/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Ornetti Data Services">
+    <meta property="og:url" content="https://ornettidataservices.com/blog/">
+    <meta property="og:title" content="Le pas de côté sur la Data & l'IA · Ornetti Data Services">
+    <meta property="og:description" content="Retours de terrain et veille sur la data et l'IA, par Ornetti Data Services.">
+    <meta property="og:image" content="https://ornettidataservices.com/logos/logo_odsp_cercle.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:        #1B2A6B;
+            --navy-dark:   #101A50;
+            --navy-light:  #2d3f8a;
+            --peach:       #D4956A;
+            --peach-light: #E8B48A;
+            --peach-pale:  #F5EBE0;
+            --white:       #FFFFFF;
+            --gray-light:  #F7F7F8;
+            --text-dark:   #1B2A6B;
+            --text-medium: #4A5568;
+            --text-light:  #718096;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 1px 24px rgba(27,42,107,0.08);
+        }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .nav-logo { width: 38px; height: 38px; object-fit: contain; }
+        .nav-name { font-weight: 700; font-size: 0.95rem; color: var(--navy); }
+        .nav-back {
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--navy); }
+
+        /* ─── HERO ─── */
+        .blog-hero {
+            background: var(--navy-dark);
+            color: var(--white);
+            padding: 9rem 3rem 5rem;
+            text-align: center;
+        }
+        .blog-hero-inner { max-width: 760px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.9rem;
+        }
+        .blog-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            line-height: 1.1;
+            margin-bottom: 0.9rem;
+        }
+        .blog-tagline {
+            font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+            font-weight: 400;
+            color: var(--peach-light);
+            line-height: 1.5;
+        }
+
+        /* ─── LISTE ARTICLES ─── */
+        .blog-list {
+            padding: 4.5rem 3rem 5.5rem;
+            background: var(--gray-light);
+        }
+        .blog-list-inner {
+            max-width: 840px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .post-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            background: var(--white);
+            border: 1px solid rgba(27,42,107,0.07);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(27,42,107,0.07);
+            transition: box-shadow 0.25s, transform 0.25s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .post-card:hover {
+            box-shadow: 0 16px 48px rgba(27,42,107,0.13);
+            transform: translateY(-4px);
+        }
+        .post-media {
+            position: relative;
+            min-height: 220px;
+            background: var(--peach-pale);
+        }
+        .post-media img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .post-body {
+            padding: 2.1rem 2.1rem 1.9rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .post-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--peach);
+            margin-bottom: 0.7rem;
+        }
+        .post-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+        .post-excerpt {
+            color: var(--text-medium);
+            font-size: 0.97rem;
+            line-height: 1.65;
+            margin-bottom: 1.3rem;
+        }
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            gap: 1rem;
+        }
+        .post-date {
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+        .post-read {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--peach);
+            transition: gap 0.2s;
+        }
+        .post-card:hover .post-read { gap: 0.7rem; }
+
+        .footer-copy {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            background: var(--navy-dark);
+        }
+
+        @media (max-width: 760px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-name { display: none; }
+            .blog-hero { padding: 7.5rem 1.5rem 4rem; }
+            .blog-list { padding: 3.5rem 1.2rem 4.5rem; }
+            .post-card { grid-template-columns: 1fr; }
+            .post-media { min-height: 190px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+    <a href="../index.html" class="nav-brand">
+        <img src="../logos/logo_odsp_cercle.png" alt="Ornetti Data Services" class="nav-logo">
+        <span class="nav-name">Ornetti Data Services</span>
+    </a>
+    <a href="../index.html" class="nav-back">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M12.5 7.5h-10M6 3.5l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Retour à l'accueil
+    </a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="blog-hero">
+    <div class="blog-hero-inner">
+        <p class="section-label">Blog</p>
+        <h1 class="blog-title">Le pas de côté sur la Data &amp; l'IA</h1>
+        <p class="blog-tagline">Retours de terrain et veille, par Ornetti Data Services.</p>
+    </div>
+</section>
+
+<!-- ═══ ARTICLES ═══ -->
+<section class="blog-list">
+    <div class="blog-list-inner">
+
+        <!-- Article 1 -->
+        <a href="carnets-de-terrain-1.html" class="post-card">
+            <div class="post-media">
+                <img src="images/carnets-terrain.jpg" alt="Deux personnes en échange autour d'une table, l'une prenant des notes" loading="lazy">
+            </div>
+            <div class="post-body">
+                <p class="post-label">Carnets de terrain</p>
+                <h2 class="post-name">Ce que l'IA change dans les organisations</h2>
+                <p class="post-excerpt">Ce que j'entends dans les collectivités, les administrations et les PME sur la façon dont l'IA s'installe.</p>
+                <div class="post-meta">
+                    <span class="post-date">Novembre 2026</span>
+                    <span class="post-read">Lire l'article
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                            <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="spec-driven-development.html" class="post-card">
+            <div class="post-media">
+                <img src="images/spec-driven.jpg" alt="Tableau de suivi avec colonnes à faire, en cours et terminé" loading="lazy">
+            </div>
+            <div class="post-body">
+                <p class="post-label">Veille IA</p>
+                <h2 class="post-name">La spec redevient le cœur du projet</h2>
+                <p class="post-excerpt">Avec les agents de code, la spécification redevient la référence. Voici quelques impacts pour les projets data.</p>
+                <div class="post-meta">
+                    <span class="post-date">Novembre 2026</span>
+                    <span class="post-read">Lire l'article
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                            <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<p class="footer-copy">© 2026 Ornetti Data Services · ornettidataservices.com</p>
+
+</body>
+</html>

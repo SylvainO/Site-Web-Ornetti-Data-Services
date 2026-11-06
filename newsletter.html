@@ -248,10 +248,11 @@
         }
         .newsletter-form input#EMAIL {
             width: 100%;
+            height: 50px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             color: var(--text-dark);
-            padding: 0.8rem 1rem;
+            padding: 0 1rem;
             border: 1px solid #D5DBE6;
             border-radius: 10px;
             background: #fff;
@@ -271,7 +272,13 @@
             background: transparent !important;
             border: none !important;
         }
+        .newsletter-form .entry__error:empty { display: none !important; }
         .newsletter-form .sib-form-block__button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            height: 50px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
@@ -279,7 +286,7 @@
             background: var(--peach);
             border: none;
             border-radius: 50px;
-            padding: 0.8rem 1.9rem;
+            padding: 0 1.9rem;
             cursor: pointer;
             white-space: nowrap;
             box-shadow: 0 10px 28px rgba(212,149,106,0.4);
@@ -400,7 +407,7 @@
                     </div>
                 </div>
                 <!-- End Brevo Form -->
-                <p class="rgpd-note">Votre e-mail sert uniquement à l'envoi de la newsletter, via Brevo. Désinscription en un clic dans chaque envoi. En savoir plus : <a href="confidentialite.html">politique de confidentialité</a>.</p>
+                <p class="rgpd-note">Votre e-mail sert uniquement à l'envoi de la newsletter, via Brevo. Vous pouvez vous désabonner en un clic dans chaque envoi de newsletter. En savoir plus : <a href="confidentialite.html">politique de confidentialité</a>.</p>
             </div>
         </div>
     </div>

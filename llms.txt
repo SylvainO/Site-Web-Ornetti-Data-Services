@@ -34,6 +34,10 @@ Le pas de côté sur la Data & l'IA — retours de terrain et veille, landing de
 - **Carnets de terrain #1 — Ce que l'IA change dans les organisations** (https://ornettidataservices.com/blog/carnets-de-terrain-1.html) : retours de terrain sur la façon dont l'IA s'installe concrètement dans les collectivités, les administrations et les PME.
 - **La spec redevient le cœur du projet** (https://ornettidataservices.com/blog/spec-driven-development.html) : veille sur le Spec-Driven Development (SDD) et ce que les agents de code changent pour les projets data.
 
+## Newsletter
+
+- Newsletter : https://ornettidataservices.com/newsletter.html
+
 ## Contact
 
 - Site : https://ornettidataservices.com

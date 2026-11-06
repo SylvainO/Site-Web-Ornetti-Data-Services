@@ -177,6 +177,21 @@
             transform: translateY(-1px);
         }
 
+        .nav-newsletter {
+            padding: 0.45rem 1.1rem;
+            border: 1.5px solid var(--peach);
+            border-radius: 50px;
+            color: var(--peach-light) !important;
+            font-weight: 600 !important;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .nav-newsletter:hover {
+            background: var(--peach);
+            color: var(--white) !important;
+        }
+        nav.scrolled .nav-newsletter { color: var(--peach) !important; }
+        nav.scrolled .nav-newsletter:hover { color: var(--white) !important; }
+
         .nav-left {
             display: flex;
             align-items: center;
@@ -1172,6 +1187,7 @@
         <li><a href="#clients">Références client</a></li>
         <li><a href="#portfolio">Projets</a></li>
         <li><a href="blog/">Blog</a></li>
+        <li><a href="newsletter.html" class="nav-newsletter">Newsletter</a></li>
         <li><a href="#contact" class="nav-cta">Me contacter</a></li>
     </ul>
 </nav>

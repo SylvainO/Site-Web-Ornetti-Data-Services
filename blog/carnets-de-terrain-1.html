@@ -93,6 +93,25 @@
             transition: color 0.2s;
         }
         .nav-back:hover { color: var(--navy); }
+        .nav-right { display: flex; align-items: center; gap: 1.1rem; }
+        .nav-newsletter {
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border: 1.5px solid var(--peach);
+            border-radius: 50px;
+            color: var(--peach);
+            transition: background 0.2s, color 0.2s;
+        }
+        .nav-newsletter:hover { background: var(--peach); color: var(--white); }
+        .art-subscribe {
+            margin-top: 1.4rem;
+            font-size: 0.95rem;
+            color: var(--text-medium);
+        }
+        .art-subscribe a { color: var(--peach); font-weight: 600; text-decoration: none; }
+        .art-subscribe a:hover { text-decoration: underline; }
 
         /* ─── HERO ─── */
         .art-hero {
@@ -322,12 +341,15 @@
         <img src="../logos/logo_odsp_cercle.png" alt="Ornetti Data Services" class="nav-logo">
         <span class="nav-name">Ornetti Data Services</span>
     </a>
-    <a href="index.html" class="nav-back">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-            <path d="M12.5 7.5h-10M6 3.5l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Retour au blog
-    </a>
+    <div class="nav-right">
+        <a href="../newsletter.html" class="nav-newsletter">Newsletter</a>
+        <a href="index.html" class="nav-back">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M12.5 7.5h-10M6 3.5l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Retour au blog
+        </a>
+    </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -412,6 +434,7 @@
                     <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
+            <p class="art-subscribe">Recevoir les prochains carnets → <a href="../newsletter.html">S'abonner</a></p>
         </div>
 
     </div>

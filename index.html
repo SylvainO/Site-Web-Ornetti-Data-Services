@@ -838,6 +838,48 @@
             line-height: 1.35;
         }
 
+        .client-wordmark {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.015em;
+            line-height: 1;
+            text-align: center;
+        }
+
+        /* ─── MEMBRE DES RÉSEAUX ─── */
+        .networks-block {
+            max-width: 760px;
+            margin: 3.5rem auto 0;
+            text-align: center;
+        }
+        .networks-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 1.75rem;
+        }
+        .networks-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .network-logo img {
+            max-width: 160px;
+            max-height: 64px;
+            object-fit: contain;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .network-logo img:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
         /* ─── PORTFOLIO ─── */
         #portfolio { background: var(--gray-light); }
 
@@ -1458,6 +1500,25 @@
                 <span class="client-logo-fallback" style="display:none">SARL<br>Thibaudeau</span>
                 <p class="client-name">SARL Thibaudeau</p>
             </div>
+            <!-- Luzeronde -->
+            <div class="client-logo-card">
+                <span class="client-wordmark">Luzeronde</span>
+                <p class="client-name">Luzeronde</p>
+            </div>
+        </div>
+        <div class="networks-block">
+            <p class="networks-label">Membre des réseaux</p>
+            <div class="networks-strip">
+                <div class="network-logo">
+                    <img src="logos/logo_lacantinefrenchtech.png" alt="La Cantine Nantes French Tech">
+                </div>
+                <div class="network-logo">
+                    <img src="logos/activeco.png" alt="Activ'éco">
+                </div>
+                <div class="network-logo">
+                    <img src="logos/logo_rafne.png" alt="RAFNÉ — Réseau d'Affaires Français de la Nouvelle-Écosse">
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1623,6 +1684,10 @@
             <div class="techno-item">
                 <img src="logos/huwise.svg" alt="Huwise">
                 <span class="techno-name">Huwise</span>
+            </div>
+            <div class="techno-item">
+                <img src="logos/logo_grist.png" alt="Grist">
+                <span class="techno-name">Grist</span>
             </div>
             <div class="techno-item">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML5">

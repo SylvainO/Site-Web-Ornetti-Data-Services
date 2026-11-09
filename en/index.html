@@ -564,6 +564,8 @@
         }
         @media (min-width: 921px) {
             .service-card.featured:hover { transform: translateY(-8px); }
+            /* Reserve identical pain height so the "Solution" label aligns across the 3 cards */
+            .service-pain { min-height: 7.9rem; }
         }
         .service-badge {
             position: absolute;
@@ -625,6 +627,125 @@
             background: rgba(212,149,106,0.1);
             color: var(--peach-light);
             border: 1px solid rgba(212,149,106,0.18);
+        }
+
+        /* CTA (Diagnostic AI card) */
+        .service-cta {
+            display: inline-flex;
+            align-items: center;
+            align-self: flex-start;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            padding: 0.7rem 1.4rem;
+            background: var(--peach);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 18px rgba(212,149,106,0.28);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .service-card.featured:hover .service-cta {
+            background: var(--peach-light);
+            transform: translateX(3px);
+        }
+
+        /* Case references: chips at the bottom of a service card */
+        .service-refs {
+            margin-top: auto;
+            padding-top: 1.75rem;
+        }
+        .service-refs-label {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 0.8rem;
+        }
+        .service-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+        .service-chip {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.42rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.82);
+            transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        /* clickable chip (external link) */
+        a.service-chip {
+            background: rgba(212,149,106,0.1);
+            border-color: rgba(212,149,106,0.28);
+            color: var(--peach-light);
+        }
+        a.service-chip:hover {
+            background: rgba(212,149,106,0.22);
+            border-color: rgba(212,149,106,0.55);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .service-chip svg {
+            flex-shrink: 0;
+            opacity: 0.65;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        a.service-chip:hover svg { transform: translate(1px,-1px); opacity: 1; }
+
+        /* Tooltip for long labels */
+        .service-chip[data-tip]::after {
+            content: attr(data-tip);
+            position: absolute;
+            bottom: calc(100% + 9px);
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            width: max-content;
+            max-width: 220px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            background: var(--navy);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.38);
+            color: #fff;
+            font-size: 0.74rem;
+            font-weight: 500;
+            line-height: 1.4;
+            text-align: center;
+            white-space: normal;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 6;
+        }
+        .service-chip[data-tip]::before {
+            content: "";
+            position: absolute;
+            bottom: calc(100% + 3px);
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            border: 6px solid transparent;
+            border-top-color: var(--navy);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 6;
+        }
+        .service-chip[data-tip]:hover::after,
+        .service-chip[data-tip]:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         /* ─── CLIENTS ─── */
@@ -696,6 +817,48 @@
             color: var(--text-light);
             text-align: center;
             line-height: 1.35;
+        }
+
+        .client-wordmark {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.015em;
+            line-height: 1;
+            text-align: center;
+        }
+
+        /* ─── NETWORK MEMBERSHIPS ─── */
+        .networks-block {
+            max-width: 760px;
+            margin: 3.5rem auto 0;
+            text-align: center;
+        }
+        .networks-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 1.75rem;
+        }
+        .networks-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .network-logo img {
+            max-width: 160px;
+            max-height: 64px;
+            object-fit: contain;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .network-logo img:hover {
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         /* ─── PORTFOLIO ─── */
@@ -1144,31 +1307,40 @@
     <div class="section-inner">
         <div class="services-header">
             <p class="section-label services-label">Services</p>
-            <h2 class="section-title services-title">Services tailored to your needs.</h2>
-            <p class="section-sub services-sub">Two ways to support you, each addressing a real pain point.</p>
+            <h2 class="section-title services-title">Services tailored to your needs and your data maturity.</h2>
+            <p class="section-sub services-sub">Three services matched to your context, with regular, committed deliverables.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card reveal" id="service-data">
-                <div class="service-icon">📊</div>
-                <h3 class="service-title">Turnkey Data Services</h3>
+            <!-- AI Diagnostic: featured card, links to the method -->
+            <a href="../diagnostic-ia.html" class="service-card featured reveal" id="service-diagnostic-ia">
+                <div class="service-icon">📖</div>
+                <h3 class="service-title">AI Diagnostic</h3>
                 <p class="service-pain">
-                    Need to offer data services to your stakeholders, but obstacles to
-                    overcome? Data quality, collection, formatting…
+                    Convinced AI will optimize how your organization runs, but you want to
+                    grasp it concretely and know which initiatives to prioritize?
                 </p>
                 <span class="service-solution-label">Solution</span>
                 <p class="service-desc">
-                    I handle your entire project, from collection to visualization: deep work
-                    on the data (quality, processing chains, interactive dashboards) all the
-                    way to delivering a service your users can actually rely on.
+                    Hands-on support, 4 to 8 weeks, to concretely test AI, identify the assets
+                    you already have in-house (data, use cases, resources) and launch
+                    high-value initiatives.
                 </p>
-                <div class="service-tags">
-                    <span class="tag">Data quality</span>
-                    <span class="tag">Collection &amp; processing</span>
-                    <span class="tag">Dashboards</span>
+                <div class="service-refs">
+                    <span class="service-refs-label">Case studies</span>
+                    <div class="service-chips">
+                        <span class="service-chip">Luzeronde</span>
+                    </div>
                 </div>
-            </div>
-            <div class="service-card featured reveal reveal-delay-1" id="service-ateliers-ia">
-                <div class="service-icon">🤖</div>
+                <span class="service-cta">
+                    Discover the method
+                    <svg width="14" height="14" viewBox="0 0 15 15" fill="none">
+                        <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </a>
+            <!-- AI Workshops -->
+            <div class="service-card reveal reveal-delay-1" id="service-ateliers-ia">
+                <div class="service-icon">🤝</div>
                 <h3 class="service-title">AI Workshops</h3>
                 <p class="service-pain">
                     Need to deliver AI use cases, but a lack of clarity or traction to
@@ -1180,10 +1352,50 @@
                     prioritizing the highest-impact ideas to putting them into practice,
                     with lasting adoption by your teams.
                 </p>
-                <div class="service-tags">
-                    <span class="tag">AI Use Cases</span>
-                    <span class="tag">Definition</span>
-                    <span class="tag">Implementation</span>
+                <div class="service-refs">
+                    <span class="service-refs-label">Case studies</span>
+                    <div class="service-chips">
+                        <a href="https://www.huwise.com/" target="_blank" rel="noopener" class="service-chip">
+                            Huwise
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506622842218938369/" target="_blank" rel="noopener" class="service-chip">
+                            CSM Network
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Turnkey Data Application -->
+            <div class="service-card reveal reveal-delay-2" id="service-data">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Turnkey Data Application</h3>
+                <p class="service-pain">
+                    Need to offer data services to your stakeholders, but obstacles to
+                    overcome? Data quality, collection, formatting…
+                </p>
+                <span class="service-solution-label">Solution</span>
+                <p class="service-desc">
+                    I handle your entire project, from collection to visualization: deep work
+                    on the data (quality, processing chains, interactive dashboards) all the
+                    way to delivering an application your users can actually rely on.
+                </p>
+                <div class="service-refs">
+                    <span class="service-refs-label">Case studies</span>
+                    <div class="service-chips">
+                        <a href="https://observatoire.commandepublique-grandest.fr/pages/accueil/" target="_blank" rel="noopener" class="service-chip" data-tip="Public procurement observatory — Grand Est">
+                            Grand Est
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://data.education.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="service-chip" data-tip="Open data portal — French Ministry of Education">
+                            Ministry of Education
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                        <a href="https://equipements.sports.gouv.fr/pages/accueil/" target="_blank" rel="noopener" class="service-chip" data-tip="Sports facilities census — French Ministry of Sports">
+                            Ministry of Sports
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 9l6-6M4.5 3H9v4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1261,6 +1473,25 @@
                      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
                 <span class="client-logo-fallback" style="display:none">SARL<br>Thibaudeau</span>
                 <p class="client-name">SARL Thibaudeau</p>
+            </div>
+            <!-- Luzeronde -->
+            <div class="client-logo-card">
+                <span class="client-wordmark">Luzeronde</span>
+                <p class="client-name">Luzeronde</p>
+            </div>
+        </div>
+        <div class="networks-block">
+            <p class="networks-label">Network memberships</p>
+            <div class="networks-strip">
+                <div class="network-logo">
+                    <img src="../logos/logo_lacantinefrenchtech.png" alt="La Cantine Nantes French Tech">
+                </div>
+                <div class="network-logo">
+                    <img src="../logos/activeco.png" alt="Activ'éco">
+                </div>
+                <div class="network-logo">
+                    <img src="../logos/logo_rafne.png" alt="RAFNÉ — Réseau d'Affaires Français de la Nouvelle-Écosse">
+                </div>
             </div>
         </div>
     </div>
@@ -1423,6 +1654,10 @@
             <div class="techno-item">
                 <img src="../logos/huwise.svg" alt="Huwise">
                 <span class="techno-name">Huwise</span>
+            </div>
+            <div class="techno-item">
+                <img src="../logos/logo_grist.png" alt="Grist">
+                <span class="techno-name">Grist</span>
             </div>
             <div class="techno-item">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg" alt="HTML5">
